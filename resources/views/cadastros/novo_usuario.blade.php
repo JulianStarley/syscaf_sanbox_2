@@ -84,34 +84,34 @@
                 <div class="bs-stepper-content">
                     <div id="dados-basicos" class="content" role="tabpanel" aria-labelledby="dados-basicos-trigger">
                         <div class="form-group">
-                            <label for="nome_usuario1">Nome Completo</label>
-                            <input type="text" class="form-control col-md-6" id="nome_usuario1"
+                            <label for="nome_usuario_1">Nome Completo</label>
+                            <input type="text" class="form-control col-md-6" id="nome_usuario_1"
                                 placeholder="Adicione nome completo">
                         </div>
 
                         <div class="form-group">
-                            <label for="cpf_usuario1">CPF</label>
-                            <input type="text" class="form-control col-md-4" id="cpf_usuario1" placeholder="Insira apenas números" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            <label for="cpf_usuario_1">CPF</label>
+                            <input type="text" class="form-control col-md-4" id="cpf_usuario_1" placeholder="Insira apenas números" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                         </div>
                         <div class="form-group">
-                            <label for="data_nascimento1">Data Nascimento</label>
-                            <input type="date" class="form-control col-md-4" id="data_nascimento1"
+                            <label for="data_nascimento_1">Data Nascimento</label>
+                            <input type="date" class="form-control col-md-4" id="data_nascimento_1"
                                 placeholder="Insira apenas números">
                         </div>
                         <div class="form-group">
-                            <label for="nacionalidade1">Nacionalidade</label>
-                            <input type="text" class="form-control col-md-4" id="nacionalidade1" placeholder="Insira apenas texto">
+                            <label for="nacionalidade_1">Nacionalidade</label>
+                            <input type="text" class="form-control col-md-4" id="nacionalidade_1" placeholder="Insira apenas texto">
                         </div>
                         <div class="form-group">
-                            <label for="naturalidade1">Naturalidade</label>
-                            <input type="text" class="form-control col-md-4" id="naturalidade1" placeholder="Insira apenas texto">
+                            <label for="naturalidade_1">Naturalidade</label>
+                            <input type="text" class="form-control col-md-4" id="naturalidade_1" placeholder="Insira apenas texto">
                         </div>
                     </div>
                         <div id="telefones" class="content" role="tabpanel" aria-labelledby="telefones-trigger">
                             <div id="telefone-container" class="mb-2">
-                                <label for="telefone_usuario1" class="form-label">Telefone</label>
+                                <label for="telefone_usuario2" class="form-label">Telefone</label>
                                 <div class="form-group d-flex align-items-center">
-                                    <input type="tel" class="form-control col-md-4 me-3" id="telefone_usuario1" placeholder="Insira o número de telefone" style="margin-bottom: 0;">
+                                    <input type="tel" class="form-control col-md-4 me-3" id="telefone_usuario2" placeholder="Insira o número de telefone" style="margin-bottom: 0;">
                                     <div class="btn-group mx-1">
                                     <button type="button" class="btn btn-secondary mx-1" id="add-telefone">+</button>
                                     <button type="button" class="btn btn-danger" id="remove-telefone">-</button>
@@ -121,8 +121,8 @@
                         </div>
             <div id="tipo-pessoa" class="content" role="tabpanel" aria-labelledby="tipo-pessoa-trigger">
                 <div class="form-group">
-                    <label for="tipo_usuario1">Tipo de Pessoa</label>
-                    <select class="form-control col-md-4" id="tipo_usuario1">
+                    <label for="tipo_usuario3">Tipo de Pessoa</label>
+                    <select class="form-control col-md-4" id="tipo_usuario3">
                         <option selected>Escolha uma opção</option>
                         <option value="Funcionário">Funcionário</option>
                         <option value="Médico">Médico</option>
@@ -131,19 +131,19 @@
                     </select>
                 </div>
             <div id="campos-adicionais" style="display: none;">
-                <div id="opcao_funcionario1" class="form-group" style="display: none;">
-                    <label for="opcao_funcionario1">Função</label>
-                    <input type="text" class="form-control col-md-4" id="opcao_funcionario1" placeholder="Insira a função">
+                <div id="opcao_funcionario3" class="form-group" style="display: none;">
+                    <label for="opcao_funcionario3">Função</label>
+                    <input type="text" class="form-control col-md-4" id="opcao_funcionario3" placeholder="Insira a função">
                 </div>
-                <div id="opcao_medico1" class="form-group" style="display: none;">
-                    <label for="opcao_medico1">CRM</label>
-                    <input type="text" class="form-control col-md-4" id="opcao_medico1" placeholder="Insira o CRM">
+                <div id="opcao_medico3" class="form-group" style="display: none;">
+                    <label for="opcao_medico3">CRM</label>
+                    <input type="text" class="form-control col-md-4" id="opcao_medico3" placeholder="Insira o CRM">
                 </div>
                 <div class="form-group">
                     <div>
-                    <label for="opcao_medico2">Especialidade</label>
+                    <label for="opcao_medico_3_2">Especialidade</label>
                     </div>
-                    <select class="form-control js-example-basic-multiple" role="combobox" id="opcao_medico2" multiple="multiple">
+                    <select class="form-control js-example-basic-multiple" role="combobox" id="opcao_medico_3_2" multiple="multiple">
                         <option></option>
                         <option value="administracao-em-saude">ADMINISTRAÇÃO EM SAÚDE</option>
                         <option value="acupuntura">ACUPUNTURA</option>
@@ -229,20 +229,20 @@
                     </div>
                 </div>
                 </div>
-                <div id="opcao_paciente1" class="form-group" style="display: none;">
-                    <label for="opcao_paciente1">Número do Cartão do SUS</label>
-                    <input type="text" class="form-control col-md-4" id="opcao_paciente1" placeholder="Insira o número do cartão do SUS">
+                <div id="opcao_paciente3" class="form-group" style="display: none;">
+                    <label for="opcao_paciente3">Número do Cartão do SUS</label>
+                    <input type="text" class="form-control col-md-4" id="opcao_paciente3" placeholder="Insira o número do cartão do SUS">
                 </div>
-                <div id="opcao_farmaceutico1" class="form-group" style="display: none;">
-                    <label for="opcao_farmaceutico1">CRF</label>
-                    <input type="text" class="form-control col-md-4" id="opcao_farmaceutico1" placeholder="Insira o CRF">
+                <div id="opcao_farmaceutico_3" class="form-group" style="display: none;">
+                    <label for="opcao_farmaceutico_3">CRF</label>
+                    <input type="text" class="form-control col-md-4" id="opcao_farmaceutico_3" placeholder="Insira o CRF">
                 </div>
             </div>
                 </div>
                     <div id="detalhes-pessoa" class="content" role="tabpanel" aria-labelledby="detalhes-pessoa-trigger">
                         <div class="form-group">
-                                <label for="nome_social">Nome Social</label>
-                                <input type="text" class="form-control col-md-6" id="nome_social" placeholder="Insira o nome social" disabled>
+                                <label for="nome_social_4">nome_social_4_4</label>
+                                <input type="text" class="form-control col-md-6" id="nome_social_4" placeholder="Insira o nome_social_4" disabled>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="toggle-nome-social">
                                     <label class="form-check-label" for="toggle-nome-social">Habilitar Nome Social</label>
@@ -250,8 +250,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="gen_usuario1">Gênero</label>
-                            <select class="form-control col-md-4" id="gen_usuario1">
+                            <label for="gen_usuario_4">Gênero</label>
+                            <select class="form-control col-md-4" id="gen_usuario_4">
                                 <option>Escolha uma opção</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Feminino">Feminino</option>
@@ -259,8 +259,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="est_civil1">Estado Cívil</label>
-                            <select class="form-control col-md-4" id="est_civil1">
+                            <label for="est_civil_4">Estado Cívil</label>
+                            <select class="form-control col-md-4" id="est_civil_4">
                                 <option>Escolha uma opção</option>
                                 <option value="Solteiro(a)">Solteiro(a)</option>
                                 <option value="Casado(a)">Casado(a)</option>
@@ -271,12 +271,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="endereco_usuario1">Endereço</label>
-                            <input type="text" class="form-control col-md-6" id="endereco_usuario1" placeholder="Insira o endereço">
+                            <label for="endereco_usuario_4">Endereço</label>
+                            <input type="text" class="form-control col-md-6" id="endereco_usuario_4" placeholder="Insira o endereço">
                         </div>
                         <div class="form-group">
-                            <label for="observacoes_usuario1">Observações</label>
-                            <textarea class="form-control col-md-6" id="observacoes_usuario1" placeholder="observações para o usuário" rows="5"></textarea>
+                            <label for="observacoes_usuario_4">Observações</label>
+                            <textarea class="form-control col-md-6" id="observacoes_usuario_4" placeholder="observações para o usuário" rows="5"></textarea>
                         </div>
                     </div>
                     <div id="resumo" class="content" role="tabpanel" aria-labelledby="resumo-trigger">
@@ -378,11 +378,11 @@
 
 <script>
  function updateContent() {
-    const nome_usuario = document.getElementById('nome_usuario1').value;
-    const cpf_usuario = document.getElementById('cpf_usuario1').value;
-    const data_nascimento = document.getElementById('data_nascimento1').value;
-    const nacionalidade = document.getElementById('nacionalidade1').value;
-    const naturalidade = document.getElementById('naturalidade1').value;
+    const nome_usuario = document.getElementById('nome_usuario_1').value;
+    const cpf_usuario = document.getElementById('cpf_usuario_1').value;
+    const data_nascimento = document.getElementById('data_nascimento_1').value;
+    const nacionalidade = document.getElementById('nacionalidade_1').value;
+    const naturalidade = document.getElementById('naturalidade_1').value;
 
     // Coletando os telefones
     const telefones = [];
@@ -393,21 +393,21 @@
         }
     }
 
-    const tipo_usuario = document.getElementById('tipo_usuario1').value;
-    const funcionario = document.getElementById('opcao_funcionario1').value;
-    const medico = document.getElementById('opcao_medico1').value; // CRM
+    const tipo_usuario = document.getElementById('tipo_usuario_3').value;
+    const funcionario = document.getElementById('opcao_funcionario_3').value;
+    const medico = document.getElementById('opcao_medico_3').value; // CRM
 
     //coleta de especialidades
-    const especialidadeSelect = document.getElementById('opcao_medico2'); // Especialidade
+    const especialidadeSelect = document.getElementById('opcao_medico_3_2'); // Especialidade
     const especialidadesSelecionadas = Array.from(especialidadeSelect.selectedOptions).map(option => option.text);
 
-    const paciente = document.getElementById('opcao_paciente1').value; // Cartão SUS
-    const farmaceutico = document.getElementById('opcao_farmaceutico1').value; // CRF
+    const paciente = document.getElementById('opcao_paciente_3').value; // Cartão SUS
+    const farmaceutico = document.getElementById('opcao_farmaceutico_3').value; // CRF
     const nome_social = document.getElementById('nome_social').value;
-    const genero = document.getElementById('gen_usuario1').value;
-    const estado_civil = document.getElementById('est_civil1').value;
-    const endereco_usuario = document.getElementById('endereco_usuario1').value;
-    const observacoes = document.getElementById('observacoes_usuario1').value;
+    const genero = document.getElementById('gen_usuario_4').value;
+    const estado_civil = document.getElementById('est_civil_4').value;
+    const endereco_usuario = document.getElementById('endereco_usuario_4').value;
+    const observacoes = document.getElementById('observacoes_usuario_4').value;
 
     // Função para atualizar e mostrar ou esconder elementos do resumo
     function updateResumo(fieldId, value) {
@@ -521,15 +521,15 @@
         }
     });
 
-    document.getElementById('tipo_usuario1').addEventListener('change', function() {
+    document.getElementById('tipo_usuario_3').addEventListener('change', function() {
     const selectedValue = this.value;
 
     const camposAdicionais = document.getElementById('campos-adicionais');
-    const opcaoFuncionario = document.getElementById('opcao_funcionario1');
-    const opcaoMedico = document.getElementById('opcao_medico1');
-    const opcaoMedico1 = document.getElementById('opcao_medico2');
-    const opcaoPaciente = document.getElementById('opcao_paciente1');
-    const opcaoFarmaceutico = document.getElementById('opcao_farmaceutico1');
+    const opcaoFuncionario = document.getElementById('opcao_funcionario_3');
+    const opcaoMedico = document.getElementById('opcao_medico_3');
+    const opcaoMedico1 = document.getElementById('opcao_medico_3_2');
+    const opcaoPaciente = document.getElementById('opcao_paciente_3');
+    const opcaoFarmaceutico = document.getElementById('opcao_farmaceutico_3');
 
     // Esconde todos os campos adicionais inicialmente
     opcaoFuncionario.style.display = 'none';
@@ -558,10 +558,10 @@
     const emptyFields = []; // Array para armazenar campos vazios
 
     // Verificar campos obrigatórios
-    const nome_usuario = document.getElementById('nome_usuario1').value;
-    const cpf_usuario = document.getElementById('cpf_usuario1').value;
-    const data_nascimento = document.getElementById('data_nascimento1').value;
-    const tipo_usuario = document.getElementById('tipo_usuario1').value;
+    const nome_usuario = document.getElementById('nome_usuario_1').value;
+    const cpf_usuario = document.getElementById('cpf_usuario_1').value;
+    const data_nascimento = document.getElementById('data_nascimento_1').value;
+    const tipo_usuario = document.getElementById('tipo_usuario_3').value;
 
     // Adicionar campos vazios ao array
     if (!nome_usuario) emptyFields.push("Nome Completo");
@@ -587,85 +587,70 @@
 });
 </script>
 
-<script>/*
-const stepper = new Stepper(document.getElementById('stepper_1'));
-
-function validateCurrentStep() {
-    const stepIndex = stepper._currentIndex; // Obtém o índice do passo atual
+<script>
+    document.getElementById('proximo').addEventListener('click', () => {
+    const currentStep = stepper._currentIndex; // Obtenha o índice do passo atual
+    let isValid = true;
     const emptyFields = [];
 
-    if (stepIndex === 0) { // Dados Básicos
-        const nome = document.getElementById('nome_usuario1').value;
-        const cpf = document.getElementById('cpf_usuario1').value;
-        const dataNascimento = document.getElementById('data_nascimento1').value;
-        const nacionalidade = document.getElementById('nacionalidade1').value;
-        const naturalidade = document.getElementById('naturalidade1').value;
+    // Validação dos campos com base no passo atual
+    if (currentStep === 0) { // Passo 1: Dados Básicos
+        const nome_usuario = document.getElementById('nome_usuario_1').value;
+        const cpf_usuario = document.getElementById('cpf_usuario_1').value;
+        const data_nascimento = document.getElementById('data_nascimento_1').value;
+        const nacionalidade = document.getElementById('nacionalidade_1').value;
+        const naturalidade = document.getElementById('naturalidade_1').value;
 
-        if (!nome) emptyFields.push('Nome Completo');
-        if (!cpf) emptyFields.push('CPF');
-        if (!dataNascimento) emptyFields.push('Data de Nascimento');
-        if (!nacionalidade) emptyFields.push('Nacionalidade');
-        if (!naturalidade) emptyFields.push('Naturalidade');
-    } else if (stepIndex === 1) { // Telefones
-
-        const telefone = document.getElementById('telefone_usuario1').value;
-        if (!telefone) emptyFields.push('Telefone');
-    } else if (stepIndex === 2) { // Tipo Pessoa
-
-        const tipoUsuario = document.getElementById('tipo_usuario1').value;
-        if (tipoUsuario === "Funcionário") {
-            const funcao = document.getElementById('opcao_funcionario1').value;
-            if (!funcao) emptyFields.push('Função');
-        } else if (tipoUsuario === "Médico") {
-            const crm = document.getElementById('opcao_medico1').value;
-            if (!crm) emptyFields.push('CRM');
-        } else if (tipoUsuario === "Paciente") {
-            const cartaoSUS = document.getElementById('opcao_paciente1').value;
-            if (!cartaoSUS) emptyFields.push('Número do Cartão do SUS');
-        } else if (tipoUsuario === "Farmacêutico") {
-            const crf = document.getElementById('opcao_farmaceutico1').value;
-            if (!crf) emptyFields.push('CRF');
+        if (!nome_usuario) {
+            emptyFields.push('Nome Completo');
+            isValid = false;
         }
-    } else if (stepIndex === 3) { // Detalhes Pessoa
-        const nomeSocial = document.getElementById('nome_social').value;
-        const genero = document.getElementById('gen_usuario1').value;
-        const estadoCivil = document.getElementById('est_civil1').value;
-        const endereco = document.getElementById('endereco_usuario1').value;
-
-        if (!nomeSocial) emptyFields.push('Nome Social');
-        if (!genero) emptyFields.push('Gênero');
-        if (!estadoCivil) emptyFields.push('Estado Civil');
-        if (!endereco) emptyFields.push('Endereço');
+        if (!cpf_usuario) {
+            emptyFields.push('CPF');
+            isValid = false;
+        }
+        if (!data_nascimento) {
+            emptyFields.push('Data Nascimento');
+            isValid = false;
+        }
+        if (!nacionalidade){
+            emptyFields.push('Nacionalidade');
+        }
+        if (!naturalidade){
+            emptyFields.push('Naturalidade');
+        }
+    } else if (currentStep === 1) { // Passo 2: Telefones
+        const telefone_usuario = document.getElementById('telefone_usuario_2').value;
+        if (!telefone_usuario) {
+            emptyFields.push('Telefone');
+            isValid = false;
+        }
+    } else if (currentStep === 2) { // Passo 3: Tipo Pessoa
+        const tipo_usuario = document.getElementById('tipo_usuario_3').value;
+        if (tipo_usuario === "Escolha uma opção") {
+            emptyFields.push('Tipo de Pessoa');
+            isValid = false;
+        }
+    }else if( currentStep === 3){
+        const
     }
+    // Continue com outros passos conforme necessário...
 
-    return emptyFields;
-}
-
-function showValidationModal(emptyFields) {
-    const emptyFieldsList = document.getElementById('emptyFieldsList');
-    emptyFieldsList.innerHTML = ''; // Limpa a lista anterior
-    emptyFields.forEach(field => {
-        const li = document.createElement('li');
-        li.textContent = field;
-        emptyFieldsList.appendChild(li);
-    });
-    $('#validationModal').modal('show'); // Exibe o modal
-}
-
-    function nextStep() {
-        const emptyFields = validateCurrentStep();
-        if (emptyFields.length > 0) {
-            showValidationModal(emptyFields);
-            } else {
-                stepper.next();
-                updateContent();
+    if (!isValid) {
+        // Exibir modal de validação se houver campos vazios
+        const emptyFieldsList = document.getElementById('emptyFieldsList');
+        emptyFieldsList.innerHTML = ''; // Limpa a lista
+        emptyFields.forEach(field => {
+            const li = document.createElement('li');
+            li.textContent = field;
+            emptyFieldsList.appendChild(li);
+        });
+        $('#validationModal').modal('show'); // Mostra o modal
+    } else {
+        updateContent(); // Atualiza o conteúdo do resumo
+        stepper.next(); // Avança para o próximo passo
     }
-}
-document.getElementById('proximo').addEventListener('click', nextStep);
-
-document.getElementById('voltar').addEventListener('click', (event) => {
-stepper.previous();
-});*/
+});
 </script>
 
 <script>
@@ -683,11 +668,11 @@ function validateForm() {
     const emptyFields = []; // Array para armazenar campos vazios
 
     // Campos obrigatórios
-    const nomeUsuario = document.getElementById('nome_usuario1').value;
-    const cpfUsuario = document.getElementById('cpf_usuario1').value;
-    const dataNascimento = document.getElementById('data_nascimento1').value;
-    const nacionalidadeUsuario = document.getElementById('nacionalidade1').value;
-    const naturalidadeUsuario = document.getElementById('naturalidade1').value;
+    const nomeUsuario = document.getElementById('nome_usuario_1').value;
+    const cpfUsuario = document.getElementById('cpf_usuario_1').value;
+    const dataNascimento = document.getElementById('data_nascimento_1').value;
+    const nacionalidadeUsuario = document.getElementById('nacionalidade_1').value;
+    const naturalidadeUsuario = document.getElementById('naturalidade_1').value;
 
     // Verifica se os campos obrigatórios estão preenchidos
     if (!nomeUsuario) {
@@ -724,7 +709,7 @@ function validateForm() {
 <script>
     $(document).ready(function() {
         // Inicializa o Select2
-        $('#opcao_medico2').select2({
+        $('#opcao_medico_3_2').select2({
             placeholder: "Selecione as especialidades",
             allowClear: true,
             minimumResultsForSearch: Infinity, // Esconde a caixa de pesquisa
@@ -784,12 +769,12 @@ document.getElementById('confirmarFinalizacao').addEventListener('click', () => 
 <script>
     document.getElementById('confirmarFinalizacao').addEventListener('click', () => {
     // Coletar dados do formulário
-    const nome_usuario = document.getElementById('nome_usuario1').value;
-    const cpf_usuario = document.getElementById('cpf_usuario1').value;
-    const data_nascimento = document.getElementById('data_nascimento1').value;
-    const nacionalidade = document.getElementById('nacionalidade1').value;
-    const telefone_usuario = document.getElementById('telefone_usuario1').value; // Adapte para coletar todos os telefones
-    const tipo_usuario = document.getElementById('tipo_usuario1').value;
+    const nome_usuario = document.getElementById('nome_usuario_1').value;
+    const cpf_usuario = document.getElementById('cpf_usuario_1').value;
+    const data_nascimento = document.getElementById('data_nascimento_1').value;
+    const nacionalidade = document.getElementById('nacionalidade_1').value;
+    const telefone_usuario = document.getElementById('telefone_usuario_2').value; // Adapte para coletar todos os telefones
+    const tipo_usuario = document.getElementById('tipo_usuario_3').value;
     // Adicione aqui a coleta dos outros campos conforme necessário
 
     // Criar um objeto com os dados
@@ -834,11 +819,11 @@ document.getElementById('confirmarFinalizacao').addEventListener('click', () => 
 <script>
     function validarFormulario() {
     const errorMessages = [];
-    const nome_usuario = document.getElementById('nome_usuario1').value;
-    const cpf_usuario = document.getElementById('cpf_usuario1').value;
-    const data_nascimento = document.getElementById('data_nascimento1').value;
-    const telefone_usuario = document.getElementById('telefone_usuario1').value; // Adapte para coletar todos os telefones
-    const tipo_usuario = document.getElementById('tipo_usuario1').value;
+    const nome_usuario = document.getElementById('nome_usuario_1').value;
+    const cpf_usuario = document.getElementById('cpf_usuario_1').value;
+    const data_nascimento = document.getElementById('data_nascimento_1').value;
+    const telefone_usuario = document.getElementById('telefone_usuario_2').value; // Adapte para coletar todos os telefones
+    const tipo_usuario = document.getElementById('tipo_usuario_3').value;
 
     // Validação dos campos obrigatórios
     if (!nome_usuario) {
@@ -890,12 +875,12 @@ document.getElementById('confirmarFinalizacao').addEventListener('click', () => 
 
     // Coletar dados do formulário
     const dadosUsuario = {
-        nome: document.getElementById('nome_usuario1').value,
-        cpf: document.getElementById('cpf_usuario1').value,
-        data_nascimento: document.getElementById('data_nascimento1').value,
-        nacionalidade: document.getElementById('nacionalidade1').value,
-        telefone: document.getElementById('telefone_usuario1').value,
-        tipo_usuario: document.getElementById('tipo_usuario1').value,
+        nome: document.getElementById('nome_usuario_1').value,
+        cpf: document.getElementById('cpf_usuario_1').value,
+        data_nascimento: document.getElementById('data_nascimento_1').value,
+        nacionalidade: document.getElementById('nacionalidade_1').value,
+        telefone: document.getElementById('telefone_usuario_2').value,
+        tipo_usuario: document.getElementById('tipo_usuario_3').value,
         // Adicione outros campos conforme necessário
     };
 
