@@ -4,6 +4,8 @@
 
 @section('title')
 {{ config('adminlte.title') }}
+
+
 @hasSection('subtitle') | @yield('subtitle') @endif
 @stop
 
