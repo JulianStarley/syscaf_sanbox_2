@@ -3,11 +3,22 @@
 @section('title', 'Novo usuário')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
 <!-- Inclua o CSS do Select2 -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    list-style: none;
+    background-color: #5897fb;
+    padding-left: 1.5em;
+    }
+    .select2-container .select2-search--inline {
+    float: left;
+    background-color: white !important;
+    }
 
+</style>
 <!-- Inclua o jQuery e o JavaScript do Select2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 @section('content_body')
     <h2> Cadastro de novo Usuário</h2>
@@ -104,39 +115,32 @@
                                 <div class="form-group d-flex align-items-center">
                                     <input type="tel" class="form-control col-md-4 me-3" id="telefone_usuario-2" placeholder="Insira o número de telefone" style="margin-bottom: 0;">
                                     <button type="button" class="btn btn-secondary mx-1" id="add-telefone">+</button>
-                                    <button type="button" class="btn btn-danger" id="remove-telefone" disabled>-</button>
                                 </div>
                             </div>
                         </div>
-                        <div id="tipo-pessoa" class="content" role="tabpanel"
-                            aria-labelledby="tipo-pessoa-trigger">
+                        <div id="tipo-pessoa" class="content" role="tabpanel" aria-labelledby="tipo-pessoa-trigger">
                             <div class="form-group">
-                                <label for="tipo_usuario3">Tipo de Pessoa</label>
-                                <select class="form-control col-md-4" id="tipo_usuario3">
+                                <label for="tipo_usuario">Tipo de Pessoa</label>
+                                <select class="form-control col-md-4" id="tipo_usuario">
                                     <option selected>Escolha uma opção</option>
-                                    <option value="Funcionário">Funcionário</option>
-                                    <option value="Médico">Médico</option>
+                                    <option value="Funcionario">Funcionário</option>
+                                    <option value="Medico">Médico</option>
                                     <option value="Paciente">Paciente</option>
-                                    <option value="Farmacêutico">Farmacêutico</option>
-                                    </select>
+                                    <option value="Farmaceutico">Farmacêutico</option>
+                                </select>
                             </div>
                             <div id="campos-adicionais" style="display: none;">
-                                <div id="opcao_funcionario3" class="form-group" style="display: none;">
-                                    <label for="opcao_funcionario3">Função</label>
-                                    <input type="text" class="form-control col-md-4"
-                                        id="opcao_funcionario3" placeholder="Insira a função">
+                                <div id="campo_funcionario" class="form-group" style="display: none;">
+                                    <label for="funcao_usuario">Função</label>
+                                    <input type="text" class="form-control col-md-4" id="funcao_usuario" placeholder="Insira a função">
                                 </div>
-                                <div id="opcao_medico3" class="form-group" style="display: none;">
-                                    <label for="opcao_medico3">CRM</label>
-                                    <input type="text" class="form-control col-md-4"
-                                        id="opcao_medico3" placeholder="Insira o CRM">
+                                <div id="campo_medico" class="form-group" style="display: none;">
+                                    <label for="crm_usuario">CRM</label>
+                                    <input type="text" class="form-control col-md-4" id="crm_usuario" placeholder="Insira o CRM">
                                 </div>
-                                <div class="form-group">
-                                    <div>
-                                        <label for="opcao_medico_3_2">Especialidade</label>
-                                    </div>
-                                    <select class="form-control js-example-basic-multiple"
-                                        role="combobox" id="opcao_medico_3_2" multiple="multiple">
+                                <div id="campo_medico_especialidade" class="form-group" style="display: none;">
+                                    <label for="especialidade_usuario">Especialidade</label>
+                                    <select class="form-control js-example-basic-multiple col-md-8" role="combobox" id="especialidade_usuario" name="especialidades[]" multiple="multiple">
                                         <option></option>
                                         <option value="administracao-em-saude">ADMINISTRAÇÃO EM
                                             SAÚDE</option>
@@ -264,20 +268,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="opcao_paciente3" class="form-group" style="display: none;">
-                                <label for="opcao_paciente3">Número do Cartão do SUS</label>
-                                <input type="text" class="form-control col-md-4"
-                                    id="opcao_paciente3" placeholder="Insira o número do cartão do SUS">
+                            <div id="campo_paciente" class="form-group" style="display: none;">
+                                <label for="sus_usuario">Número do Cartão do SUS</label>
+                                <input type="text" id="sus_usuario" class="form-control col-md-4" placeholder="Insira o número do cartão do SUS">
                             </div>
-                            <div id="opcao_farmaceutico_3" class="form-group" style="display: none;">
-                                <label for="opcao_farmaceutico_3">CRF</label>
-                                <input type="text" class="form-control col-md-4"
-                                    id="opcao_farmaceutico_3" placeholder="Insira o CRF">
+                            <div id="campo_farmaceutico" class="form-group" style="display: none;">
+                                <label for="crf_usuario">CRF</label>
+                                <input type="text" id="crf_usuario" class="form-control col-md-4" placeholder="Insira o CRF">
                             </div>
                         </div>
 
-                        <div id="detalhes-pessoa" class="content" role="tabpanel"
-                        aria-labelledby="detalhes-pessoa-trigger">
+                        <div id="detalhes-pessoa" class="content" role="tabpanel" aria-labelledby="detalhes-pessoa-trigger">
                         <div class="form-group">
                             <label for="nome_social_4">Nome Social</label>
                             <input type="text" class="form-control col-md-6"
@@ -448,6 +449,85 @@
     });
 });
 </script>
+<script>
+    $(document).ready(function () {
+        // Função para mostrar/ocultar campos com base no tipo de pessoa selecionado
+        $('#tipo_usuario').on('change', function () {
+            const tipo = $(this).val();
+
+            // Esconde todos os campos adicionais inicialmente
+            $('#campo_funcionario, #campo_medico, #campo_medico_especialidade, #campo_paciente, #campo_farmaceutico').hide();
+
+            // Mostra o container de campos adicionais
+            $('#campos-adicionais').show();
+
+            // Mostra os campos correspondentes com base na seleção
+            switch (tipo) {
+                case 'Funcionario':
+                    $('#campo_funcionario').show(); // Mostra o campo de Função
+                    break;
+                case 'Medico':
+                    $('#campo_medico').show(); // Mostra o campo de CRM
+                    $('#campo_medico_especialidade').show(); // Mostra o campo de Especialidades
+                    break;
+                case 'Paciente':
+                    $('#campo_paciente').show(); // Mostra o campo de Número do Cartão do SUS
+                    break;
+                case 'Farmaceutico':
+                    $('#campo_farmaceutico').show(); // Mostra o campo de CRF
+                    break;
+                default:
+                    $('#campos-adicionais').hide(); // Esconde os campos adicionais se não for um tipo válido
+                    break;
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // Inicializa o Select2 para o select de especialidades médicas
+        $('#especialidade_usuario').select2({
+            placeholder: "Escolha uma ou mais especialidades",
+            allowClear: true,
+            multiple:true,
+            dropdownAutoWidth: true,
+            closeOnSelect:false,
+        });
+
+        // Função para mostrar/ocultar campos com base no tipo de pessoa selecionado
+        $('#tipo_usuario').on('change', function () {
+            const tipo = $(this).val();
+
+            // Esconde todos os campos adicionais inicialmente
+            $('#campo_funcionario, #campo_medico, #campo_medico_especialidade, #campo_paciente, #campo_farmaceutico').hide();
+
+            // Mostra o container de campos adicionais
+            $('#campos-adicionais').show();
+
+            // Mostra os campos correspondentes com base na seleção
+            switch (tipo) {
+                case 'Funcionario':
+                    $('#campo_funcionario').show(); // Mostra o campo de Função
+                    break;
+                case 'Medico':
+                    $('#campo_medico').show(); // Mostra o campo de CRM
+                    $('#campo_medico_especialidade').show(); // Mostra o campo de Especialidades
+                    break;
+                case 'Paciente':
+                    $('#campo_paciente').show(); // Mostra o campo de Número do Cartão do SUS
+                    break;
+                case 'Farmaceutico':
+                    $('#campo_farmaceutico').show(); // Mostra o campo de CRF
+                    break;
+                default:
+                    $('#campos-adicionais').hide(); // Esconde os campos adicionais se não for um tipo válido
+                    break;
+            }
+        });
+    });
+</script>
+
+
 
 @endpush
 
