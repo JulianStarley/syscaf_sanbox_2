@@ -14,6 +14,18 @@
     float: left;
     background-color: white !important;
     }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #000000 !important;
+    }
+    .select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    cursor: text;
+    min-width: 340px;
+    min-height: 40px;
+    }
+
 
 </style>
 <!-- Inclua o jQuery e o JavaScript do Select2 -->
@@ -139,7 +151,9 @@
                                     <input type="text" class="form-control col-md-4" id="crm_usuario" placeholder="Insira o CRM">
                                 </div>
                                 <div id="campo_medico_especialidade" class="form-group" style="display: none;">
-                                    <label for="especialidade_usuario">Especialidade</label>
+                                    <div>
+                                        <label for="especialidade_usuario">Especialidade</label>
+                                    </div>
                                     <select class="form-control js-example-basic-multiple col-md-8" role="combobox" id="especialidade_usuario" name="especialidades[]" multiple="multiple">
                                         <option></option>
                                         <option value="administracao-em-saude">ADMINISTRAÇÃO EM
@@ -262,10 +276,6 @@
                                         </option>
                                         <option value="urologia">UROLOGIA</option>
                                         </select>
-                                    <div class="input-group-append mt-2">
-                                        <button class="btn btn-danger" type="button"
-                                            id="clear-especialidades">Limpar</button>
-                                    </div>
                                 </div>
                             </div>
                             <div id="campo_paciente" class="form-group" style="display: none;">
@@ -281,13 +291,10 @@
                         <div id="detalhes-pessoa" class="content" role="tabpanel" aria-labelledby="detalhes-pessoa-trigger">
                         <div class="form-group">
                             <label for="nome_social_4">Nome Social</label>
-                            <input type="text" class="form-control col-md-6"
-                                id="nome_social_4" placeholder="Insira o Nome Social" disabled>
+                            <input type="text" class="form-control col-md-6" id="nome_social_4" placeholder="Insira o Nome Social" disabled>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input"
-                                    id="toggle-nome-social">
-                                <label class="form-check-label"
-                                    for="toggle-nome-social">Habilitar Nome Social</label>
+                                <input type="checkbox" class="form-check-input" id="toggle-nome-social">
+                                <label for="toggle-nome-social" class="form-check-label">Habilitar Nome Social</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -348,10 +355,7 @@
                         <button type="button" class="btn btn-primary" id="nextBtn">Próximo</button>
                     </div>
                 </div>
-
-
-                </div>
-
+            </div>
             </form>
         </div>
     </div>
@@ -526,8 +530,19 @@
         });
     });
 </script>
-
-
+<script>
+    $(document).ready(function () {
+    // Evento para habilitar/desabilitar o campo "Nome Social"
+    $('#toggle-nome-social').on('change', function () {
+        if (this.checked) {
+            $('#nome_social_4').prop('disabled', false); // Habilita o campo de Nome Social
+        } else {
+            $('#nome_social_4').prop('disabled', true); // Desabilita o campo de Nome Social
+            $('#nome_social_4').val(''); // Limpa o campo se desabilitado
+        }
+    });
+});
+</script>
 
 @endpush
 
