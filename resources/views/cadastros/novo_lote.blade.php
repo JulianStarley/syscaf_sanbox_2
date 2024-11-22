@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="inputLote1">Número do Lote</label>
-                        <input type="number" class="form-control" id="inputLote1" placeholder="insira o lote do Medicamento">
+                        <input type="text" class="form-control" id="inputLote1" placeholder="insira o lote do Medicamento">
                     </div>
                     <div class="form-group">
                         <label>Escolha o medicamento</label>
@@ -39,9 +39,18 @@
                         <label for="inputfactor1">Fator de Embalagem</label>
                         <input type="number" class="form-control" id="inputfactor1" placeholder="Inserir apenas números">
                     </div>
+                    <div class="form-group">
+                        <label for="inputfab1">Fabricação</label>
+                        <input type="date" class="form-control" id="inputfab1" placeholder="insira a validade no formato DD/MM/AAAA">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputval1">Validade</label>
+                        <input type="date" class="form-control" id="inputval1" placeholder="insira a validade no formato DD/MM/AAAA">
+                    </div>
+
                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
                         <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                        <label class="custom-control-label" for="customSwitch3">Bloqueado / Ativo</label>
+                        <label class="custom-control-label" for="customSwitch3"><p>Bloqueado / Ativo</p></label>
                     </div>
                 <div class="form-group">
                     <label>Observações</label>
@@ -53,7 +62,6 @@
             </form>
             </div>
         </div>
-
 @stop
 
 {{-- Push extra CSS --}}

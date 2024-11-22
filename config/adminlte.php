@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>Syscaf</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/favicon.png',
+    'logo_img' => 'public\vendor\adminlte\dist\img\favicon.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/favicon.png',
+            'path' => 'public\vendor\adminlte\dist\img\favicon.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -263,7 +263,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
     'disable_darkmode_routes' => false,
 
     /*
@@ -359,7 +359,7 @@ return [
                     'url' => '/novo_lote',
                 ],
                 [
-                    'text' => 'Consumos',
+                    'text' => 'Saídas',
                     'url' => '#',
                     'submenu' => [
                         [
@@ -396,9 +396,15 @@ return [
         [
             'text' => 'Entradas',
             'url' => '#',
+            'icon' => 'far fa-fw fa-book',
+
             'submenu' =>[
                 [
                     'text' => 'Medicamentos',
+                    'url' => '#',
+                ],
+                 [
+                    'text' => 'Prescrições',
                     'url' => '#',
                 ],
                 [

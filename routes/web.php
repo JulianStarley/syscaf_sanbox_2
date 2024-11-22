@@ -43,3 +43,7 @@ Route::get('/ver_usuarios', function(){
 Route::get('/ver_unidades', function(){
     return view('visualizar.ver_unidades    ');
 });
+
+Route::get('/admin/settings', function(){
+    return view('admin.settings');
+});
