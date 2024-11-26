@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3 |SYSCAF',
+    'title' => 'AdminLTE 3',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => true,
+    'use_ico_only' => false,
     'use_full_favicon' => false,
 
     /*
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Syscaf</b>LTE',
-    'logo_img' => 'public\vendor\adminlte\dist\img\favicon.png',
+    'logo' => '<b>Admin</b>LTE',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -84,9 +84,9 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
-            'path' => 'public\vendor\adminlte\dist\img\favicon.png',
+            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -113,7 +113,7 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/favicon.png',
+            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -134,7 +134,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => true,
+    'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -236,7 +236,7 @@ return [
     |
     */
 
-    'right_sidebar' => true,
+    'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
@@ -263,7 +263,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => true,
+    'profile_url' => false,
     'disable_darkmode_routes' => false,
 
     /*
@@ -339,99 +339,50 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text' => 'Cadastros',
+            'text' => 'Cadastrar',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Usuários',
+                    'text' => 'Novo Usuário',
                     'url' => '/novo_usuario',
                 ],
                 [
-                    'text' => 'Unidades',
+                    'text' => 'Nova Unidade',
                     'url' => '/nova_unidade',
                 ],
                 [
-                    'text' => 'Medicamentos',
+                    'text' => 'Novo Medicamento',
                     'url' => '/novo_medicamento',
                 ],
                 [
-                    'text' => 'Lotes',
+                    'text' => 'Novo Lote',
                     'url' => '/novo_lote',
-                ],
-                [
-                    'text' => 'Saídas',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Por Dispensação',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Perda',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'Quebra',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'Validade',
-                                    'url' => '#',
-                                ],
-                        [
-                        'text' => 'Por unidade',
-                        'url' => '#',
-                        ],
-                            ],
-                        ],
-                    ],
-                ],
-
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
                 ],
             ],
         ],
         [
             'text' => 'Entradas',
-            'url' => '#',
-            'icon' => 'far fa-fw fa-book',
-
-            'submenu' =>[
-                [
-                    'text' => 'Medicamentos',
-                    'url' => '#',
-                ],
-                 [
-                    'text' => 'Prescrições',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'Ajuste de Lote',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'Transferências',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        [
-            'text' => 'Visualizações',
-            'url' => '#',
+            'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                'text' => 'Usuários',
-                'url' => '/ver_usuarios',
-                ],
-                [
-                'text' => 'Unidades',
-                'url' => '/ver_unidades',
+                    'text' => 'Prescrições',
+                    'submenu' => [
+                        [
+                            'text' => 'Prescrição Simples',
+                            'url' => '/prescricao_simples',
+                        ],
+                        [
+                            'text' => 'Relatório Médico',
+                            'url' => '/relatorio_medico',
+                        ],
+                        [
+                            'text' => 'Controle Especial',
+                            'url' => '/prescricao_controle_especial',
+                        ],
+                    ],
                 ],
             ],
         ],
-
         ['header' => 'labels'],
         [
             'text' => 'important',
@@ -486,61 +437,36 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => true,
-            'files' => [
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => '//cdn.datatables.net/buttons/3.1.2/js/dataTables.buttons.min.js',
-            ],
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => '//cdn.datatables.net/buttons/3.1.2/js/buttons.bootstrap.min.js',
-            ],
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => '//cdn.datatables.net/buttons/3.1.2/js/buttons.html5.min.js',
-            ],
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => '//cdn.datatables.net/buttons/3.1.2/js/buttons.print.min.js',
-            ],
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => 'vendor/datatables-plugins/jszip/jszip.min.js',
-            ],
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.min.js',
-            ],
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => 'vendor/datatables-plugins/pdfmake/vfs_fonts.js',
-            ],
-            [
-                'type' => 'css',
-                'asset' => true,
-                'location' => '//cdn.datatables.net/buttons/3.1.2/css/buttons.bootstrap.min.css',
-            ],
-        ],
-    ],
-        'Select2' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => true,
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                ],
+            ],
+        ],
+        'Select2' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => true,
+                    'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],
@@ -566,7 +492,7 @@ return [
             ],
         ],
         'Pace' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',
@@ -579,26 +505,6 @@ return [
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],
-        ],
-         'TempusDominusBs4' => [
-        'active' => true,
-        'files' => [
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => 'vendor/moment/moment.min.js',
-            ],
-            [
-                'type' => 'js',
-                'asset' => true,
-                'location' => 'vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
-            ],
-            [
-                'type' => 'css',
-                'asset' => true,
-                'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
-            ],
-        ],
         ],
     ],
 

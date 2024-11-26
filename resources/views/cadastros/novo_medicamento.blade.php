@@ -18,16 +18,50 @@
             <form>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="inputMed1">Nome medicamento</label>
-                        <input type="text" class="form-control" id="inputMed1" placeholder="Adicione nome completo do Medicamento">
+                        <label for="nome1">Nome medicamento</label>
+                        <input type="text" class="form-control" id="nome1" placeholder="Adicione nome completo do Medicamento">
                     </div>
                     <div class="form-group">
                         <label for="cod1">Código do medicamento</label>
                         <input type="text" class="form-control" id="cod1" placeholder="atribua um código ao medicamento">
                     </div>
+                    <!-- Select multiple-->
                     <div class="form-group">
-                        <label for="cod1">Forma Farmacêutica</label>
-                        <input type="text" class="form-control" id="cod1" placeholder="Comprimidos, Drágeas, Tiras, entre outros">
+                        <label>Forma Farmacêutica</label>
+                        <select class="form-control">
+                            <option>Adesivos</option>
+                            <option>Aerossol</option>
+                            <option>Cápsula</option>
+                            <option>Comprimido</option>
+                            <option>Comprimidos sublinguais</option>
+                            <option>Comprimido vaginal</option>
+                            <option>Cremes</option>
+                            <option>Creme vaginal</option>
+                            <option>Drágea</option>
+                            <option>Enema</option>
+                            <option>Gel</option>
+                            <option>Gotas</option>
+                            <option>Gota nasal</option>
+                            <option>Gota otológica</option>
+                            <option>Loção</option>
+                            <option>Óvulos</option>
+                            <option>Pastilha</option>
+                            <option>Pomadas</option>
+                            <option>Pomada auricular</option>
+                            <option>Pomada vaginal</option>
+                            <option>Pós para reconstituição</option>
+                            <option>Solução oral</option>
+                            <option>Solução tópica</option>
+                            <option>Solução inalante</option>
+                            <option>Spray</option>
+                            <option>Supositórios</option>
+                            <option>Suspensões</option>
+                            <option>Xarope</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="con1">Concentração</label>
+                        <input type="text" class="form-control" id="con1" placeholder="Indique a concentração do item">
                     </div>
                     <div class="form-group">
                         <label>Cor da Tarja</label>

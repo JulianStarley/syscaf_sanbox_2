@@ -44,6 +44,18 @@ Route::get('/ver_unidades', function(){
     return view('visualizar.ver_unidades    ');
 });
 
-Route::get('/admin/settings', function(){
-    return view('admin.settings');
+Route::get('/prescricao_simples', function(){
+    return view('entradas.prescricao_simples');
 });
+
+Route::get('/relatorio_medico', function(){
+    return view('entradas.relatorio_medico');
+});
+
+Route::get('/prescricao_controle_especial', function(){
+    return view('entradas.prescricao_controle_especial');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
