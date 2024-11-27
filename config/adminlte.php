@@ -379,6 +379,14 @@ return [
                             'text' => 'Controle Especial',
                             'url' => '/prescricao_controle_especial',
                         ],
+                        [
+                            'text' => 'Receituário Antimicrobiano',
+                            'url' => '/prescricao_antimicrobianos',
+                        ],
+                        [
+                            'text' => 'Atestado Médico',
+                            'url' => '/prescricao_atestado_medico',
+                        ],
                     ],
                 ],
             ],

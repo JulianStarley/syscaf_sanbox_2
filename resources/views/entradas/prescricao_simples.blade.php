@@ -18,16 +18,7 @@
         <!-- form start -->
         <form>
             <div class="card-body">
-                <div class="form-group" id="seleciona_paciente">
-                    <label>Escolha o tipo de prescrição</label>
-                    <select class="form-control">
-                        <option>Relatório Médico</option>
-                        <option>Receituário simples</option>
-                        <option>Receituário controle especial</option>
-                        <option>Receituário antimicrobiano</option>
-                        <option>Atestado médico</option>
-                    </select>
-                </div>
+            <!--inicio identificao paciente-->
                 <div class="form-group" id="seleciona_paciente">
                     <label>Nome do Paciente</label>
                     <select class="form-control">
@@ -38,6 +29,13 @@
                         <option>Paciente 5</option>
                     </select>
                 </div>
+                <!--fim identificao paciente-->
+                <div class="form-group">
+                    <label>Prescrição</label>
+                    <textarea class="form-control" rows="8" placeholder="Descreva o tratamento em detalhes"></textarea>
+                </div>
+                <!--inicio identificao medico-->
+                <!--inicio dados medico emitente-->
                 <div class="form-group" id="seleciona_medico">
                     <label>Nome do Médico Prescritor</label>
                     <select class="form-control">
@@ -49,49 +47,32 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="UF_med">UF</label>
+                    <label for="UF_med1">UF</label>
                     <input type="text" class="form-control" id="UF_med" placeholder="Inserir UF">
                 </div>
                 <div class="form-group">
-                    <label for="CNES">CNES</label>
-                    <input type="text" class="form-control" id="CNES" placeholder="CNES puxado do banco">
+                    <label for="end_med">Endereço</label>
+                    <input type="text" class="form-control" id="end_med" placeholder="Endereço do médico">
                 </div>
                 <div class="form-group">
-                    <label for="emissao">Data Prescrição</label>
+                    <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" placeholder="cidade puxado do banco">
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" placeholder="telefone puxado do banco">
+                </div>
+                <div class="form-group">
+                    <label for="emissao">Data Emissão</label>
                     <input type="date" class="form-control" id="emissao" placeholder="dia atual default!">
                 </div>
-                <div class="form-group" id="seleciona_administracao">
-                    <label>Via de Administração</label>
-                    <select class="form-control">
-                        <option>Via Oral</option>
-                        <option>Via Tópica</option>
-                        <option>Via Endovenosa</option>
-                        <option>Via Intramuscular</option>
-                        <option>Via Subcutânea</option>
-                        <option>Via Intratecal</option>
-                        <option>Via Inalatória</option>
-                    </select>
-                </div>
-                <div class="form-group" id="seleciona_administracao">
-                    <label>Nome medicamento</label>
-                    <select class="form-control">
-                        <option>Med1 + concentracao + forma farmaceutica </option>
-                        <option>Med2 + concentracao + forma farmaceutica</option>
-                        <option>Med3 + concentracao + forma farmaceutica</option>
-                        <option>Med4 + concentracao + forma farmaceutica</option>
-                        <option>Med5 + concentracao + forma farmaceutica</option>
-                        <option>Med6 + concentracao + forma farmaceutica</option>
-                        <option>Med7 + concentracao + forma farmaceutica</option>
-                    </select>
-                </div>
+                <!--fim dados medico emitente-->
                 <div class="form-group">
-                    <label>Posologia e orientações de uso</label>
-                    <textarea class="form-control" rows="3" placeholder="Descreva o tratamento em detalhes"></textarea>
+                    <label>Assintaura Médico</label>
+                    <textarea class="form-control" rows="2" placeholder="campo de assinatura eletronica"></textarea>
                 </div>
-                <div class="form-group" display="none">
-                    <label>Relatório Médico</label>
-                    <textarea class="form-control" rows="5" placeholder="Descrição de um relatório médico"></textarea>
-                </div>
+            </div>
+
             </div>
         </form>
     </div>

@@ -2,9 +2,9 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Controle especial ')
+@section('subtitle', 'Relatório Médico')
 @section('content_header_title', 'Prescrições')
-@section('content_header_subtitle', 'Controle especial')
+@section('content_header_subtitle', 'Relatório Médico')
 
 {{-- Content body: main page content --}}
 
@@ -13,12 +13,84 @@
     <!-- general form elements -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Identificação do médico emitente</h3>
+            <h3 class="card-title">Identificação do paciente</h3>
         </div>
         <!-- form start -->
         <form>
-            <!-- inicio identificacao medico emitente-->
+            <!--inicio identificar paciente-->
             <div class="card-body">
+                <div class="form-group" id="seleciona_paciente1">
+                    <label>Nome do Paciente</label>
+                    <select class="form-control">
+                        <option>Paciente 1</option>
+                        <option>Paciente 2</option>
+                        <option>Paciente 3</option>
+                        <option>Paciente 4</option>
+                        <option>Paciente 5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="idade_paciente">Idade</label>
+                    <input type="text" class="form-control" id="UF_med" placeholder="calculo entre datas para obter a idade atual">
+                </div>
+                <div class="form-group">
+                    <label for="sexo_paciente">Sexo</label>
+                    <input type="text" class="form-control" id="seco_paciente" placeholder="sexo cadastrado no banco ao selecionar o nome do paciente">
+                </div>
+            </div>
+        </div>
+                <!--fim identificar paciente-->
+                <!--inicio dados tratamento-->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Dados do Tratamento</h3>
+        </div>
+            <div class="card-body">
+                <div class="form-group" id="seleciona_medicamento">
+                    <label>Nome do medicamento ou substancia</label>
+                    <select class="form-control">
+                        <option>Med1 + concentracao + forma farmaceutica</option>
+                        <option>Med2 + concentracao + forma farmaceutica</option>
+                        <option>Med3 + concentracao + forma farmaceutica</option>
+                        <option>Med4 + concentracao + forma farmaceutica</option>
+                        <option>Med5 + concentracao + forma farmaceutica</option>
+                        <option>Med6 + concentracao + forma farmaceutica</option>
+                        <option>Med7 + concentracao + forma farmaceutica</option>
+                    </select>
+                </div>
+                <div class="form-group" id="seleciona_administracao">
+                    <label>Via de Administração</label>
+                    <select class="form-control">
+                        <option>Via Oral</option>
+                        <option>Via Tópica</option>
+                        <option>Via Endovenosa</option>
+                        <option>Via Intramuscular</option>
+                        <option>Via Subcutânea</option>
+                        <option>Via Intratecal</option>
+                        <option>Via Inalatória</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Posologia e orientações de uso</label>
+                    <textarea class="form-control" rows="3" placeholder="Descreva o tratamento em detalhes"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="quant_medicamento">Quantidade</label>
+                    <input type="number" class="form-control" id="quant_medicamento" placeholder="Inserir quantidade medicamento">
+                </div>
+                <div class="form-group" display="none">
+                    <label>Duração do tratamento</label>
+                    <textarea class="form-control" rows="2" placeholder="duração do tratamento"></textarea>
+                </div>
+            </div>
+    </div>
+                <!--fim dados tratamento-->
+                <!--inicio dados medico emitente-->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Dados do Médico Emitente</h3>
+            </div>
+                <div class="card-body">
                 <div class="form-group" id="seleciona_medico">
                     <label>Nome do Médico Prescritor</label>
                     <select class="form-control">
@@ -30,102 +102,34 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="UF_med">UF</label>
+                    <label for="UF_med1">UF</label>
                     <input type="text" class="form-control" id="UF_med" placeholder="Inserir UF">
                 </div>
                 <div class="form-group">
-                    <label for="end_med">Endereço completo</label>
-                    <input type="text" class="form-control" id="end_med" placeholder="Inserir UF">
+                    <label for="end_med">Endereço</label>
+                    <input type="text" class="form-control" id="end_med" placeholder="Endereço do médico">
                 </div>
                 <div class="form-group">
-                    <label for="cidade_med">Cidade</label>
-                    <input type="text" class="form-control" id="cidade_med" placeholder="Cidade">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" placeholder="cidade puxado do banco">
                 </div>
                 <div class="form-group">
-                    <label for="tel_med">Telefone</label>
-                    <input type="text" class="form-control" id="tel_med" placeholder="Telefone">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" placeholder="telefone puxado do banco">
                 </div>
                 <div class="form-group">
-                    <label for="data_med">Data emissão</label>
-                    <input type="date" class="form-control" id="data_med" placeholder="Data emissão">
-                </div>
-            </div>
-        </div>
-                <!-- fim identificacao medico emitente-->
-                <!-- inicio identificacao paciente-->
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title primary">Identificação do paciente</h3>
-            </div>
-            <div class="card-body">
-                <div class="form-group" id="seleciona_paciente">
-                    <label>Nome do Paciente</label>
-                    <select class="form-control">
-                        <option>Paciente 1</option>
-                        <option>Paciente 2</option>
-                        <option>Paciente 3</option>
-                        <option>Paciente 4</option>
-                        <option>Paciente 5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="end_paciente">Endereço paciente</label>
-                    <input type="text" class="form-control" id="end_paciente" placeholder="Inserir UF">
-                </div>
-                <div class="form-group">
-                    <label for="emissao">Data Prescrição</label>
+                    <label for="emissao">Data Emissão</label>
                     <input type="date" class="form-control" id="emissao" placeholder="dia atual default!">
                 </div>
-                <div class="form-group">
-                    <label>Prescrição</label>
-                    <textarea class="form-control" rows="5" placeholder="Descrição em detalhes"></textarea>
-                </div>
             </div>
         </div>
-                <!-- fim identificação do paciente-->
-                <!-- identificação do comprador-->
-    <div class="card card-primary">
-        <div class="card-header">
-            <h3 class="card-title primary">Identificação do comprador</h3>
-        </div>
-        <div class="card-body">
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="nome_comprador">Nome completo comprador</label>
-                        <input type="text" class="form-control" id="nome_comprador" placeholder="Inserir Nome completo comprador ou recebedor">
-                    </div>
-                    <div class="form-group">
-                        <label for="rg_comprador">RG comprador</label>
-                        <input type="text" class="form-control" id="rg_comprador" placeholder="Inserir RG recebedor">
-                    </div>
-                    <div class="form-group">
-                        <label for="ssp_comprador">Orgão emissor</label>
-                        <input type="text" class="form-control" id="ssp_comprador" placeholder="Inserir ssp recebedor">
-                    </div>
-                    <div class="form-group">
-                        <label for="end_comprador">Endereço completo comprador</label>
-                        <input type="text" class="form-control" id="rg_comprador" placeholder="Inserir endereço recebedor">
-                    </div>
-                    <div class="form-group">
-                        <label for="cidade_comprador">Cidade comprador</label>
-                        <input type="text" class="form-control" id="cidade_comprador" placeholder="Inserir cidade recebedor">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefone_comprador">telefone comprador</label>
-                        <input type="text" class="form-control" id="telefone_comprador" placeholder="Inserir telefone recebedor">
-                    </div>
-                </div>
-        </div>
-    </div>
-                <!--fim identificação comprador-->
+                <!--fim dados medico emitente-->
                 <!--inicio identificação farmaceutico-->
-
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title primary">Identificação do farmacêutico</h3>
+                <h3 class="card-title">Identificação Farmacêutico</h3>
             </div>
-            <div class="card-body">
-                <div class="form-group">
+                <div class="card-body">
                     <div class="form-group">
                         <label for="nome_farma">Nome farmaceutico</label>
                         <input type="text" class="form-control" id="nome_farma" placeholder="Inserir nome completo farmaceutico">
@@ -159,16 +163,14 @@
                         <input type="text" class="form-control" id="telefone_farma" placeholder="Inserir telefone farmacia">
                     </div>
                 </div>
-            </div>
         </div>
                 <!--fim identificação farmaceutico-->
                 <!--inicio dispensação-->
         <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title primary">Dispensação</h3>
-                    </div>
-            <div class="card-body">
-                <div class="form-group">
+            <div class="card-header">
+                <h3 class="card-title">Dispensação</h3>
+            </div>
+                <div class="card-body">
                     <div class="form-group" id="seleciona_administracao">
                         <label>Nome medicamento</label>
                         <select class="form-control">
@@ -191,30 +193,30 @@
                     </div>
                     <div class="form-group">
                         <label for="registro_med">Registro receituario</label>
-                        <input type="number" class="form-control" id="registro_med" placeholder="Inserir registro receituario (se medicamento manipulado)">
+                        <input type="number" class="form-control" id="registro_med"
+                            placeholder="Inserir registro receituario (se medicamento manipulado)">
                     </div>
                 </div>
-            </div>
         </div>
                 <!--fim dispensação-->
                 <!--inicio intercambio dispensação-->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title primary">Intercambio de Dispensação</h3>
+                <h3 class="card-title">Intercambio de Dispensação</h3>
             </div>
             <div class="card-body">
                 <div class="form_group">
                     <div class="row">
                         <p> o medicamento -
-                           <select class="form-control">
-                            <option>Med1 + concentracao + forma farmaceutica </option>
-                            <option>Med2 + concentracao + forma farmaceutica</option>
-                            <option>Med3 + concentracao + forma farmaceutica</option>
-                            <option>Med4 + concentracao + forma farmaceutica</option>
-                            <option>Med5 + concentracao + forma farmaceutica</option>
-                            <option>Med6 + concentracao + forma farmaceutica</option>
-                            <option>Med7 + concentracao + forma farmaceutica</option>
-                        </select>
+                            <select class="form-control">
+                                <option>Med1 + concentracao + forma farmaceutica </option>
+                                <option>Med2 + concentracao + forma farmaceutica</option>
+                                <option>Med3 + concentracao + forma farmaceutica</option>
+                                <option>Med4 + concentracao + forma farmaceutica</option>
+                                <option>Med5 + concentracao + forma farmaceutica</option>
+                                <option>Med6 + concentracao + forma farmaceutica</option>
+                                <option>Med7 + concentracao + forma farmaceutica</option>
+                            </select>
                         </p>
                         <p> foi substituido pelo Genérico -
                             <select class="form-control">
@@ -233,7 +235,7 @@
             </div>
         </div>
                 <!--fim intercambio dispensação-->
-    </div>
+            </div>
         </form>
     </div>
 </div>

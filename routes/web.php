@@ -55,6 +55,13 @@ Route::get('/relatorio_medico', function(){
 Route::get('/prescricao_controle_especial', function(){
     return view('entradas.prescricao_controle_especial');
 });
+Route::get('/prescricao_antimicrobianos', function(){
+    return view('entradas.prescricao_antimicrobianos');
+});
+
+Route::get('/prescricao_atestado_medico', function(){
+    return view('entradas.prescricao_atestado_medico');
+});
 
 Auth::routes();
 

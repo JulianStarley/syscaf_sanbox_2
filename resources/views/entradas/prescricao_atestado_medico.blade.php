@@ -2,9 +2,9 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Relatório Médico')
+@section('subtitle', 'Controle especial ')
 @section('content_header_title', 'Prescrições')
-@section('content_header_subtitle', 'Relatório Médico')
+@section('content_header_subtitle', 'Controle especial')
 
 {{-- Content body: main page content --}}
 
@@ -13,25 +13,39 @@
     <!-- general form elements -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Relatório Médico</h3>
+            <h3 class="card-title">Atestado Médico</h3>
         </div>
         <!-- form start -->
         <form>
-            <div class="card-body">
-                <div class="form-group" id="seleciona_paciente">
-                    <label>Nome do Paciente</label>
-                    <select class="form-control">
-                        <option>Paciente 1</option>
-                        <option>Paciente 2</option>
-                        <option>Paciente 3</option>
-                        <option>Paciente 4</option>
-                        <option>Paciente 5</option>
-                    </select>
+                <!--inicio identificar paciente-->
+                <div class="card-body">
+                    <div class="form-group" id="seleciona_paciente1">
+                        <label>Nome do Paciente</label>
+                        <select class="form-control">
+                            <option>Paciente 1</option>
+                            <option>Paciente 2</option>
+                            <option>Paciente 3</option>
+                            <option>Paciente 4</option>
+                            <option>Paciente 5</option>
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label for="atestado">Dias afastamento</label>
+                    <input type="text" class="form-control" id="atestado" placeholder="Quantidade em dias">
                 </div>
                 <div class="form-group">
-                    <label>Relatório Médico</label>
-                    <textarea class="form-control" rows="8" placeholder="Descrição de um relatório médico"></textarea>
+                    <label>Observações</label>
+                    <textarea class="form-control" rows="5" placeholder="Descrição de um relatório médico"></textarea>
                 </div>
+            </div>
+        </div>
+                <!--fim identificar paciente-->
+        <div class=" card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Dados médico emitente</h3>
+            </div>
+            <div class="card-body">
+                <!--inicio dados medico emitente-->
                 <div class="form-group" id="seleciona_medico">
                     <label>Nome do Médico Prescritor</label>
                     <select class="form-control">
@@ -43,20 +57,12 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="UF_med">UF</label>
+                    <label for="UF_med1">UF</label>
                     <input type="text" class="form-control" id="UF_med" placeholder="Inserir UF">
                 </div>
                 <div class="form-group">
-                    <label for="CNES">CNES</label>
-                    <input type="text" class="form-control" id="CNES" placeholder="CNES puxado do banco">
-                </div>
-                <div class="form-group">
-                    <label for="end1">Endereço</label>
-                    <input type="text" class="form-control" id="end1" placeholder="end puxado do banco">
-                </div>
-                <div class="form-group">
-                    <label for="bairro">Bairro</label>
-                    <input type="text" class="form-control" id="bairro" placeholder="bairro puxado do banco">
+                    <label for="end_med">Endereço</label>
+                    <input type="text" class="form-control" id="end_med" placeholder="Endereço do médico">
                 </div>
                 <div class="form-group">
                     <label for="cidade">Cidade</label>
@@ -67,12 +73,13 @@
                     <input type="text" class="form-control" id="telefone" placeholder="telefone puxado do banco">
                 </div>
                 <div class="form-group">
-                    <label for="emissao">Data Relatório</label>
+                    <label for="emissao">Data Emissão</label>
                     <input type="date" class="form-control" id="emissao" placeholder="dia atual default!">
                 </div>
+                <!--fim dados medico emitente-->
                 <div class="form-group">
                     <label>Assintaura Médico</label>
-                    <textarea class="form-control" rows="2" placeholder="Descrição de um relatório médico"></textarea>
+                    <textarea class="form-control" rows="2" placeholder="campo de assinatura eletronica"></textarea>
                 </div>
             </div>
         </form>
