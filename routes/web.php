@@ -63,6 +63,11 @@ Route::get('/prescricao_atestado_medico', function(){
     return view('entradas.prescricao_atestado_medico');
 });
 
+Route::get('/perfil_usuario', function(){
+    return view('profile.perfil_usuario');
+});
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
