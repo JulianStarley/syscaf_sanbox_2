@@ -14,6 +14,24 @@
         <div class="col-md-6">
             <div class="card card-success">
                 <div class="card-header">
+                    <h3 class="card-title">Perfil Usuário</h3>
+                </div>
+                <div class="card-body">
+                    <p>Foto<span></span></p>
+                    <p>Email<span></span></p>
+                    <p>Nome<span></span></p>
+                    <p>Sobrenome<span></span></p>
+                    <p>Data Nascimento<span></span></p>
+                    <p>Telefone<span></span></p>
+                    <p>Pais<span></span></p>
+                    <p>Cidade<span></span></p>
+                    <p>Gênero<span></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-success">
+                <div class="card-header">
                     <h3 class="card-title">Informações Usuário</h3>
                 </div>
                 <div class="card-body">
@@ -26,24 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card card-success">
-                <div class="card-header">
-                    <h3 class="card-title">Perfil Usuário</h3>
-                </div>
-                <div class="card-body">
-                    Foto
-                    <p>Email<span></span></p>
-                    <p>Nome<span></span></p>
-                    <p>Sobrenome<span></span></p>
-                    <p>Data Nascimento<span></span></p>
-                    <p>Telefone<span></span></p>
-                    <p>Pais<span></span></p>
-                    <p>Cidade<span></span></p>
-                    <p>Gênero<span></span></p>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 @stop
