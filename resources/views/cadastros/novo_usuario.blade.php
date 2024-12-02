@@ -40,60 +40,55 @@
                 <div class="bs-stepper" id="stepper_1">
                     <div class="bs-stepper-header" role="tablist">
                         <div class="step" data-target="#dados-basicos">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="dados-basicos"
-                                id="dados-basicos-trigger">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="dados-basicos" id="dados-basicos-trigger" aria-labelledby="step1">
                                 <span class="bs-stepper-circle">1</span>
-                                <span class="bs-stepper-label">Dados Básicos</span>
+                                <span class="bs-stepper-label" id="step1">Dados Básicos</span>
                             </button>
                         </div>
                         <div class="line"></div>
                         <div class="step" data-target="#telefones">
-                            <button type="button" class="step-trigger" role="tab"
-                                aria-controls="telefones" id="telefones-trigger">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="telefones" id="telefones-trigger" aria-labelledby="step2">
                                 <span class="bs-stepper-circle">2</span>
-                                <span class="bs-stepper-label">Telefones</span>
+                                <span class="bs-stepper-label" id="step2">Telefones</span>
                             </button>
                         </div>
                         <div class="line"></div>
                         <div class="step" data-target="#tipo-pessoa">
-                            <button type="button" class="step-trigger" role="tab"
-                                aria-controls="tipo-pessoa" id="tipo-pessoa-trigger">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="tipo-pessoa" id="tipo-pessoa-trigger" aria-labelledby="step3">
                                 <span class="bs-stepper-circle">3</span>
-                                <span class="bs-stepper-label">Tipo Pessoa</span>
+                                <span class="bs-stepper-label" id="step3">Tipo Pessoa</span>
                             </button>
                         </div>
                         <div class="line"></div>
                         <div class="step" data-target="#detalhes-pessoa">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="detalhes-pessoa" id="detalhes-pessoa-trigger">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="detalhes-pessoa" id="detalhes-pessoa-trigger" aria-labelledby="step4">
                                 <span class="bs-stepper-circle">4</span>
-                                <span class="bs-stepper-label">Detalhes Pessoa</span>
+                                <span class="bs-stepper-label" id="step4">Detalhes Pessoa</span>
                             </button>
                         </div>
                         <div class="line"></div>
                         <div class="step" data-target="#resumo">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="resumo" id="resumo-trigger">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="resumo" id="resumo-trigger" aria-labelledby="step5">
                                 <span class="bs-stepper-circle">5</span>
-                                <span class="bs-stepper-label">Resumo</span>
+                                <span class="bs-stepper-label" id="step5">Resumo</span>
                             </button>
                         </div>
                     </div>
                     <div class="bs-stepper-content">
+                        {{-- Passo 1 - dados básicos --}}
                         <div id="dados-basicos" class="content" role="tabpanel" aria-labelledby="dados-basicos-trigger">
                             <div class="form-group">
                                 <label for="nome_usuario_1">Nome Completo</label>
-                                <input type="text" class="form-control col-md-6" id="nome_usuario_1"
-                                    placeholder="Adicione nome completo">
+                                <input type="text" class="form-control col-md-6" id="nome_usuario_1" placeholder="Adicione nome completo" required>
                             </div>
                             <div class="form-group">
                                 <label for="cpf_usuario_1">CPF</label>
-                                <input type="text" class="form-control col-md-4" id="cpf_usuario_1"
-                                    placeholder="Insira apenas números" maxlength="11"
-                                    oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                <input type="text" class="form-control col-md-4" id="cpf_usuario_1" placeholder="Insira apenas números" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                                <small class="form-text text-muted">Digite apenas numeros sem traços ou pontos.</small>
                             </div>
                             <div class="form-group">
                                 <label for="data_nascimento_1">Data Nascimento</label>
-                                <input type="date" class="form-control col-md-4" id="data_nascimento_1"
-                                    placeholder="Insira apenas números">
+                                <input type="date" class="form-control col-md-4" id="data_nascimento_1" placeholder="Insira apenas números" required>
                             </div>
                             <div class="form-group">
                                 <label for="nacionalidade_1">Nacionalidade</label>
@@ -115,16 +110,20 @@
                                 </select>
                             </div>
                         </div>
-                        <div id="telefones" class="content" role="tabpanel"
-                            aria-labelledby="telefones-trigger">
+                        {{-- fim do passo 1 --}}
+                        {{-- Passo 2 - dados de telefone --}}
+                        <div id="telefones" class="content" role="tabpanel" aria-labelledby="telefones-trigger">
                             <div id="telefone-container" class="mb-2">
                                 <label for="telefone_usuario_2" class="form-label">Telefone</label>
                                 <div class="form-group d-flex align-items-center">
-                                    <input type="tel" class="form-control col-md-4 me-3" id="telefone_usuario_2" placeholder="Insira o número de telefone" style="margin-bottom: 0;">
+                                    <input type="tel" class="form-control col-md-4 me-3" id="telefone_usuario_2" placeholder="Ex: (XX) XXXXX-XXXX" style="margin-bottom: 0;">
                                     <button type="button" class="btn btn-secondary mx-1" id="add-telefone">+</button>
                                 </div>
+                                <small class="form-text text-muted">Insira o número de telefone no formato (XX) XXXXX-XXXX.</small>
                             </div>
                         </div>
+                        {{-- fim do passo 2 --}}
+                        {{-- Passo 3 - dados tipo pessoa --}}
                         <div id="tipo-pessoa" class="content" role="tabpanel" aria-labelledby="tipo-pessoa-trigger">
                             <div class="form-group">
                                 <label for="tipo_usuario">Tipo de Pessoa</label>
@@ -135,6 +134,7 @@
                                     <option value="Paciente">Paciente</option>
                                     <option value="Farmaceutico">Farmacêutico</option>
                                 </select>
+                                <small class="form text text-muted">A seleção resulta em campos adicionais relevantes.</small>
                             </div>
                             <div id="campos-adicionais" style="display: none;">
                                 <div id="campo_funcionario" class="form-group" style="display: none;">
@@ -149,28 +149,28 @@
                                     <div>
                                         <label for="especialidade_usuario">Especialidade</label>
                                     </div>
-                                    <select class="form-control select2 select2-hidden-accesssible col-md-8" multiple data-placeholder="Selecione uma especialidade" id="especialidade_usuario" data-select-id="7" tabindex="-1" aria-hidden="true">
-                                        <option data-select-id="20" value="administracao-em-saude">ADMINISTRAÇÃO EM SAÚDE</option>
-                                        <option data-select-id="21" value="acupuntura">ACUPUNTURA</option>
-                                        <option data-select-id="22" value="administracao-hospitalar">ADMINISTRAÇÃO HOSPITALAR</option>
-                                        <option data-select-id="23" value="alergia-e-imunologia">ALERGIA E IMUNOLOGIA</option>
-                                        <option data-select-id="24" value="alergia-e-imunopatologia">ALERGIA E IMUNOPATOLOGIA</option>
-                                        <option data-select-id="25" value="anatomia-patologica">ANATOMIA PATOLÓGICA</option>
-                                        <option data-select-id="26" value="anestesiologia">ANESTESIOLOGIA</option>
-                                        <option data-select-id="27" value="angiologia-e-cirurgia-vascular">ANGIOLOGIA E CIRURGIA VASCULAR</option>
-                                        <option data-select-id="28" value="angiologia">ANGIOLOGIA</option>
-                                        <option data-select-id="29" value="broncoesofagologia">BRONCOESOFAGOLOGIA</option>
-                                        <option data-select-id="30" value="cancerologia">CANCEROLOGIA</option>
-                                        <option data-select-id="31" value="cancerologia-cirurgica">CANCEROLOGIA CIRÚRGICA</option>
-                                        <option data-select-id="32" value="cancerologia-pediatrica">CANCEROLOGIA PEDIÁTRICA</option>
-                                        <option data-select-id="33" value="cardiologia">CARDIOLOGIA</option>
-                                        <option data-select-id="34" value="cirurgia-cardiovascular">CIRURGIA CARDIOVASCULAR</option>
-                                        <option data-select-id="35"value="cirurgia-da-mao">CIRURGIA DA MÃO</option>
-                                        <option data-select-id="36" value="cirurgia-de-cabeca-e-pescoco">CIRURGIA DE CABEÇA E PESCOÇO</option>
-                                        <option data-select-id="37"value="cirurgia-digestiva">CIRURGIA DIGESTIVA</option>
-                                        <option data-select-id="38"value="cirurgia-do-aparelho-digestivo">CIRURGIA DO APARELHO DIGESTIVO</option>
-                                        <option data-select-id="39" value="cirurgia-do-trauma">CIRURGIA DO TRAUMA</option>
-                                        <option data-select-id="40"value="cirurgia-gastroenterologica">CIRURGIA GASTROENTEROLÓGICA</option>
+                                    <select class="form-control select2 col-md-8" multiple data-placeholder="Selecione uma especialidade" id="especialidade_usuario" tabindex="-1" aria-hidden="true">
+                                        <option value="administracao-em-saude">ADMINISTRAÇÃO EM SAÚDE</option>
+                                        <option value="acupuntura">ACUPUNTURA</option>
+                                        <option value="administracao-hospitalar">ADMINISTRAÇÃO HOSPITALAR</option>
+                                        <option value="alergia-e-imunologia">ALERGIA E IMUNOLOGIA</option>
+                                        <option value="alergia-e-imunopatologia">ALERGIA E IMUNOPATOLOGIA</option>
+                                        <option value="anatomia-patologica">ANATOMIA PATOLÓGICA</option>
+                                        <option value="anestesiologia">ANESTESIOLOGIA</option>
+                                        <option value="angiologia-e-cirurgia-vascular">ANGIOLOGIA E CIRURGIA VASCULAR</option>
+                                        <option value="angiologia">ANGIOLOGIA</option>
+                                        <option value="broncoesofagologia">BRONCOESOFAGOLOGIA</option>
+                                        <option value="cancerologia">CANCEROLOGIA</option>
+                                        <option value="cancerologia-cirurgica">CANCEROLOGIA CIRÚRGICA</option>
+                                        <option value="cancerologia-pediatrica">CANCEROLOGIA PEDIÁTRICA</option>
+                                        <option value="cardiologia">CARDIOLOGIA</option>
+                                        <option value="cirurgia-cardiovascular">CIRURGIA CARDIOVASCULAR</option>
+                                        <option value="cirurgia-da-mao">CIRURGIA DA MÃO</option>
+                                        <option value="cirurgia-de-cabeca-e-pescoco">CIRURGIA DE CABEÇA E PESCOÇO</option>
+                                        <option value="cirurgia-digestiva">CIRURGIA DIGESTIVA</option>
+                                        <option value="cirurgia-do-aparelho-digestivo">CIRURGIA DO APARELHO DIGESTIVO</option>
+                                        <option value="cirurgia-do-trauma">CIRURGIA DO TRAUMA</option>
+                                        <option value="cirurgia-gastroenterologica">CIRURGIA GASTROENTEROLÓGICA</option>
                                         <option value="cirurgia-geral">CIRURGIA GERAL</option>
                                         <option value="cirurgia-oncologica">CIRURGIA ONCOLÓGICA
                                         </option>
@@ -255,6 +255,7 @@
                                         </option>
                                         <option value="urologia">UROLOGIA</option>
                                         </select>
+                                        <small class="form-text text-muted">Selecione uma ou mais especialidades.</small>
                                 </div>
                             </div>
                             <div id="campo_paciente" class="form-group" style="display: none;">
@@ -266,7 +267,8 @@
                                 <input type="text" id="crf_usuario" class="form-control col-md-4" placeholder="Insira o CRF">
                             </div>
                         </div>
-
+                        {{-- fim do passo 3 --}}
+                        {{-- passo 4 - detalhes pessoa --}}
                         <div id="detalhes-pessoa" class="content" role="tabpanel" aria-labelledby="detalhes-pessoa-trigger">
                         <div class="form-group">
                             <label for="nome_social_4">Nome Social</label>
@@ -275,6 +277,7 @@
                                 <input type="checkbox" class="form-check-input" id="toggle-nome-social">
                                 <label for="toggle-nome-social" class="form-check-label">Habilitar Nome Social</label>
                             </div>
+                            <small class="form-text text-muted">O nome social será utilizado em comunicações e documentos.</small>
                         </div>
                         <div class="form-group">
                             <label for="gen_usuario_4">Gênero</label>
@@ -304,10 +307,11 @@
                         </div>
                         <div class="form-group">
                             <label for="observacoes_usuario_4">Observações</label>
-                            <textarea class="form-control col-md-6" id="observacoes_usuario_4" placeholder="observações para o usuário"
-                                rows="5"></textarea>
+                            <textarea class="form-control col-md-6" id="observacoes_usuario_4" placeholder="observações para o usuário" rows="5"></textarea>
                         </div>
                     </div>
+                    {{-- fim do passo 4 --}}
+                    {{-- passo 5 - resumo do usuario --}}
                     <div id="resumo" class="content" role="tabpanel" aria-labelledby="resumo-trigger">
                         <h2>Resumo</h2>
                         <table id="infoTable" class="display">
@@ -344,6 +348,7 @@
                 </div>
             </div>
             </form>
+            {{-- fim do passo 5 --}}
         </div>
     </div>
 
@@ -363,225 +368,109 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
 <script>
-    function updateStepVisibility() {
-    $('.bs-stepper-content .content').removeClass('active'); // Remove a classe active de todos os passos
-    $('.bs-stepper-content .content').eq(currentStep).addClass('active'); // Adiciona a classe active ao passo atual
-
-    // Atualiza a visibilidade dos botões
-    $('#prevBtn').toggle(currentStep > 0); // Mostra o botão "Voltar" se não estiver no primeiro passo
-    $('#nextBtn').text(currentStep === totalSteps - 1 ? 'Finalizar' : 'Próximo'); // Altera o texto do botão "Próximo" para "Finalizar" no último passo
-}
-</script>
-
-<script> //adicionar novos telefones
     $(document).ready(function () {
-    let telefoneCount = 1; // Contador de telefones
-    // Função para adicionar um novo campo de telefone
+    const totalSteps = $('.bs-stepper-content .content').length;
+    let currentStep = 0;
+
+    // Inicializa o Select2 para o select de especialidades médicas
+    $('#especialidade_usuario').select2({
+        placeholder: "Escolha uma ou mais especialidades",
+        allowClear: true,
+        multiple: true,
+        dropdownAutoWidth: true,
+        closeOnSelect: false,
+    });
+
+    // Função para atualizar a visibilidade dos passos
+    function updateStepVisibility() {
+        $('.bs-stepper-content .content').removeClass('active').eq(currentStep).addClass('active');
+        $('#prevBtn').toggle(currentStep > 0);
+        $('#nextBtn').text(currentStep === totalSteps - 1 ? 'Finalizar' : 'Próximo');
+    }
+
+    // Evento para o botão "Próximo"
+    $('#nextBtn').on('click', function () {
+        if (validateCurrentStep()) {
+            currentStep++;
+            updateStepVisibility();
+        }
+    });
+
+    // Evento para o botão "Voltar"
+    $('#prevBtn').on('click', function () {
+        if (currentStep > 0) {
+            currentStep--;
+            updateStepVisibility();
+        }
+    });
+
+    // Função para validar o passo atual
+    function validateCurrentStep() {
+        const currentContent = $('.bs-stepper-content .content').eq(currentStep);
+        let isValid = true;
+
+        currentContent.find('input[required], select[required]').each(function () {
+            if (!$(this).val()) {
+                $(this).addClass('is-invalid'); // Adiciona classe de erro
+                isValid = false;
+            } else {
+                $(this).removeClass('is-invalid'); // Remove classe de erro
+            }
+        });
+
+        return isValid;
+    }
+
+    // Adicionar novos telefones
+    let telefoneCount = 1;
     $('#add-telefone').on('click', function () {
-        telefoneCount++; // Incrementa o contador
+        telefoneCount++;
         const newTelefone = `
             <div class="form-group d-flex align-items-center mb-2" id="telefone_usuario${telefoneCount}">
-                <input type="tel" class="form-control col-md-4 me-3" placeholder="Insira o número de telefone" style="margin-bottom: 0;">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-danger remove-telefone ml-1">-</button>
-                </div>
+                <input type="tel" class="form-control col-md-4 me-3" placeholder="Ex: (XX) XXXXX-XXXX" required>
+                <button type="button" class="btn btn-danger remove-telefone ml-1">-</button>
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="emergencia_usuario${telefoneCount}">
                 <label class="form-check-label" for="emergencia_usuario${telefoneCount}">Emergência</label>
             </div>
         `;
-        $('#telefone-container').append(newTelefone); // Adiciona o novo campo ao container
-
-        // Habilita o botão de remover telefone
-        $('#remove-telefone').prop('disabled', false);
+        $('#telefone-container').append(newTelefone);
     });
 
     // Evento para remover um campo de telefone
     $(document).on('click', '.remove-telefone', function () {
         $(this).closest('.form-group').next('.form-check').remove(); // Remove o checkbox de emergência
         $(this).closest('.form-group').remove(); // Remove o campo de telefone
-        if ($('#telefone-container .form-group').length === 1) {
-            $('#remove-telefone').prop('disabled', true); // Desabilita o botão se apenas o campo original estiver presente
-        }
     });
 
-    // Evento para mudar a cor da label e do texto quando o checkbox "Emergência" é marcado
-    $(document).on('change', 'input[type="checkbox"]', function () {
-        const label = $(this).siblings('label');
-        if (this.checked) {
-            label.css('color', 'red'); // Muda a cor da label para vermelho
-        } else {
-            label.css('color', ''); // Reseta a cor da label
-        }
-    });
-});
-</script>
-<script> // Função para mostrar/ocultar campos com base no tipo de pessoa selecionado
-    $(document).ready(function () {
+    // Função para mostrar/ocultar campos com base no tipo de pessoa selecionado
+    $('#tipo_usuario').on('change', function () {
+        const tipo = $(this).val();
+        console.log("Tipo de usuário selecionado:", tipo); // Log do tipo selecionado
 
-        $('#tipo_usuario').on('change', function () {
-            const tipo = $(this).val();
+        // Esconde todos os campos adicionais antes de mostrar os relevantes
+        $('#campos-adicionais > div').hide();
+        $('#campos-adicionais').show(); // Mostra o container de campos adicionais
 
-            // Esconde todos os campos adicionais inicialmente
-            $('#campo_funcionario, #campo_medico, #campo_medico_especialidade, #campo_paciente, #campo_farmaceutico').hide();
-
-            // Mostra o container de campos adicionais
-            $('#campos-adicionais').show();
-
-            // Mostra os campos correspondentes com base na seleção
-            switch (tipo) {
-                case 'Funcionario':
-                    $('#campo_funcionario').show(); // Mostra o campo de Função
-                    break;
-                case 'Medico':
-                    $('#campo_medico').show(); // Mostra o campo de CRM
-                    $('#campo_medico_especialidade').show(); // Mostra o campo de Especialidades
-                    break;
-                case 'Paciente':
-                    $('#campo_paciente').show(); // Mostra o campo de Número do Cartão do SUS
-                    break;
-                case 'Farmaceutico':
-                    $('#campo_farmaceutico').show(); // Mostra o campo de CRF
-                    break;
-                default:
-                    $('#campos-adicionais').hide(); // Esconde os campos adicionais se não for um tipo válido
-                    break;
-            }
-        });
-    });
-</script>
-<script>// Inicializa o Select2 para o select de especialidades médicas
-    $(document).ready(function () {
-        $('#especialidade_usuario').select2({
-            placeholder: "Escolha uma ou mais especialidades",
-            allowClear: true,
-            multiple:true,
-            dropdownAutoWidth: true,
-            closeOnSelect:false,
-        });
-
-        // Função para mostrar/ocultar campos com base no tipo de pessoa selecionado
-        $('#tipo_usuario').on('change', function () {
-            const tipo = $(this).val();
-
-            // Esconde todos os campos adicionais inicialmente
-            $('#campo_funcionario, #campo_medico, #campo_medico_especialidade, #campo_paciente, #campo_farmaceutico').hide();
-
-            // Mostra o container de campos adicionais
-            $('#campos-adicionais').show();
-
-            // Mostra os campos correspondentes com base na seleção
-            switch (tipo) {
-                case 'Funcionario':
-                    $('#campo_funcionario').show(); // Mostra o campo de Função
-                    break;
-                case 'Medico':
-                    $('#campo_medico').show(); // Mostra o campo de CRM
-                    $('#campo_medico_especialidade').show(); // Mostra o campo de Especialidades
-                    break;
-                case 'Paciente':
-                    $('#campo_paciente').show(); // Mostra o campo de Número do Cartão do SUS
-                    break;
-                case 'Farmaceutico':
-                    $('#campo_farmaceutico').show(); // Mostra o campo de CRF
-                    break;
-                default:
-                    $('#campos-adicionais').hide(); // Esconde os campos adicionais se não for um tipo válido
-                    break;
-            }
-        });
-    });
-</script>
-<script>
-    $(document).ready(function () {
-    // Evento para habilitar/desabilitar o campo "Nome Social"
-    $('#toggle-nome-social').on('change', function () {
-        if (this.checked) {
-            $('#nome_social_4').prop('disabled', false); // Habilita o campo de Nome Social
-        } else {
-            $('#nome_social_4').prop('disabled', true); // Desabilita o campo de Nome Social
-            $('#nome_social_4').val(''); // Limpa o campo se desabilitado
-        }
-    });
-});
-</script>
-<script>
-   $(document).ready(function () {
-    var stepper = new Stepper($('.bs-stepper')[0]);
-    var currentStep = 0; // Índice do passo atual
-    const totalSteps = $('.bs-stepper-header .step').length;
-
-    // Função para atualizar a visibilidade dos passos
-    function updateStepVisibility() {
-        $('.bs-stepper-content .content').removeClass('active'); // Remove a classe active de todos os passos
-        $('.bs-stepper-content .content').eq(currentStep).addClass('active'); // Adiciona a classe active ao passo atual
-
-        // Atualiza a visibilidade dos botões
-        $('#prevBtn').toggle(currentStep > 0); // Mostra o botão "Voltar" se não estiver no primeiro passo
-        $('#nextBtn').text(currentStep === totalSteps - 1 ? 'Finalizar' : 'Próximo'); // Altera o texto do botão "Próximo" para "Finalizar" no último passo
-    }
-
-    // Evento do botão "Próximo"
-    $('#nextBtn').on('click', function () {
-        if (currentStep === 3) { // Se estivermos no passo 4
-            // Coletar dados dos campos
-            var nomeCompleto = $('#nome_usuario_1').val();
-            var cpf = $('#cpf_usuario_1').val();
-            var dataNascimento = $('#data_nascimento_1').val();
-            var nacionalidade = $('#nacionalidade_1').val();
-            var naturalidade = $('#naturalidade_1').val();
-            var tipoPessoa = $('#tipo_usuario').val();
-            var telefone = []; // Para coletar todos os telefones
-            $('#telefone-container input[type="tel"]').each(function() {
-                telefone.push($(this).val());
-            });
-            var nomeSocial = $('#nome_social_4').val();
-            var genero = $('#gen_usuario_4').val();
-            var estadoCivil = $('#est_civil_4').val();
-            var endereco = $('#endereco_usuario_4').val();
-            var observacoes = $('#observacoes_usuario_4').val();
-
-            // Preencher a tabela com os dados coletados
-            var tableBody = $('#infoTable tbody');
-            tableBody.empty(); // Limpa a tabela antes de adicionar novos dados
-            tableBody.append('<tr><td>Nome Completo</td><td>' + nomeCompleto + '</td></tr>');
-            tableBody.append('<tr><td>CPF</td><td>' + cpf + '</td></tr>');
-            tableBody.append('<tr><td>Data de Nascimento</td><td>' + dataNascimento + '</td></tr>');
-            tableBody.append('<tr><td>Nacionalidade</td><td>' + nacionalidade + '</td></tr>');
-            tableBody.append('<tr><td>Naturalidade</td><td>' + naturalidade + '</td></tr>');
-            tableBody.append('<tr><td>Tipo de Pessoa</td><td>' + tipoPessoa + '</td></tr>');
-            tableBody.append('<tr><td>Telefone(s)</td><td>' + telefone.join(', ') + '</td></tr>');
-            tableBody.append('<tr><td>Nome Social</td><td>' + nomeSocial + '</td></tr>');
-            tableBody.append('<tr><td>Gênero</td><td>' + genero + '</td></tr>');
-            tableBody.append('<tr><td>Estado Civil</td><td>' + estadoCivil + '</td></tr>');
-            tableBody.append('<tr><td>Endereço</td><td>' + endereco + '</td></tr>');
-            tableBody.append('<tr><td>Observações</td><td>' + observacoes + '</td></tr>');
-
-            // Exibir a tabela
-            $('#infoTable').show();
-
-            // Inicializa o DataTable
-            $('#infoTable').DataTable();
-        }
-
-        // Avança para o próximo passo
-        if (current Step < totalSteps - 1) {
-            currentStep++;
-            stepper.next(); // Avança para o próximo passo do stepper
-            updateStepVisibility(); // Atualiza a visibilidade dos passos
-        } else {
-            // Aqui você pode adicionar a lógica para finalizar o formulário, como enviar os dados
-            alert("Formulário enviado!"); // Exemplo de ação ao finalizar
-        }
-    });
-
-    // Evento do botão "Voltar"
-    $('#prevBtn').on('click', function () {
-        if (currentStep > 0) {
-            currentStep--;
-            stepper.previous(); // Volta para o passo anterior do stepper
-            updateStepVisibility(); // Atualiza a visibilidade dos passos
+        // Mostra os campos apropriados com base na seleção
+        switch (tipo) {
+            case 'Funcionario':
+                $('#campo_funcionario').show();
+                break;
+            case 'Medico':
+                $('#campo_medico').show();
+                $('#campo_medico_especialidade').show();
+                break;
+            case 'Paciente':
+                $('#campo_paciente').show();
+                break;
+            case 'Farmaceutico':
+                $('#campo_farmaceutico').show();
+                break;
+            default:
+                $('#campos-adicionais').hide(); // Esconde o container se nenhum tipo for selecionado
+                break;
         }
     });
 

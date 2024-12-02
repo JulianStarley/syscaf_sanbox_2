@@ -91,6 +91,10 @@ return [
         'octane' => [
             'driver' => 'octane',
         ],
+         // this disable cache
+        'none' => [
+            'driver' => 'null',
+        ],
 
     ],
 

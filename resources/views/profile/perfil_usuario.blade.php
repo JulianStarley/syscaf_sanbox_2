@@ -17,15 +17,34 @@
                     <h3 class="card-title">Perfil Usuário</h3>
                 </div>
                 <div class="card-body">
-                    <p>Foto<span></span></p>
-                    <p>Email<span></span></p>
-                    <p>Nome<span></span></p>
-                    <p>Sobrenome<span></span></p>
-                    <p>Data Nascimento<span></span></p>
-                    <p>Telefone<span></span></p>
-                    <p>Pais<span></span></p>
-                    <p>Cidade<span></span></p>
-                    <p>Gênero<span></span></p>
+                    {{-- foto perfil --}}
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle" src="{{ asset('../../dist/img/perfilteste.png') }}"
+                                alt="User profile picture">
+                        </div>
+                        <h3 class="profile-username text-center">Nome{{-- $user->name --}}</h3>
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item">
+                                <b>Email</b> <span class="float-right">{{-- $user->email --}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Data Nascimento</b> <span class="float-right">{{-- $user->birth_date --}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Telefone</b> <span class="float-right">{{-- $user->phone --}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Pais</b> <span class="float-right">{{-- $user->country --}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Cidade</b> <span class="float-right">{{-- $user->city --}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Gênero</b> <span class="float-right">{{-- $user->gender --}}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,18 +54,34 @@
                     <h3 class="card-title">Informações Usuário</h3>
                 </div>
                 <div class="card-body">
-                    <p>Status <span></span></p>
-                    <p>Usuário<span></span></p>
-                    <p>Tipo usuário<span></span></p>
-                    <p>Registrado desde<span></span></p>
-                    <p>Registrado por<span></span></p>
-                    <p>Último acesso<span></span></p>
+                    <div class="card-body box-profile">
+                      <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>Status</b> <span class="float-right">{{-- $user->status --}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Usuário</b> <span class="float-right">{{-- $user->username --}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Tipo usuário</b> <span class="float-right">{{-- $user->type --}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Registrado desde</b> <span class="float-right">{{-- $user->created_at --}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Registrado por</b> <span class="float-right">{{-- $user->created_by --}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Último acesso</b> <span class="float-right">{{-- $user->last_login --}}</span>
+                        </li>
+                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
 @stop
 
 {{-- Push extra CSS --}}

@@ -339,7 +339,7 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text' => 'Cadastrar',
+            'text' => 'Cadastros',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
@@ -361,39 +361,52 @@ return [
             ],
         ],
         [
-            'text' => 'Entradas',
+            'text' => 'Prescrições',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Prescrições',
-                    'submenu' => [
-                        [
-                            'text' => 'Prescrição Simples',
-                            'url' => '/prescricao_simples',
-                        ],
-                        [
-                            'text' => 'Relatório Médico',
-                            'url' => '/relatorio_medico',
-                        ],
-                        [
-                            'text' => 'Controle Especial',
-                            'url' => '/prescricao_controle_especial',
-                        ],
-                        [
-                            'text' => 'Receituário Antimicrobiano',
-                            'url' => '/prescricao_antimicrobianos',
-                        ],
-                        [
-                            'text' => 'Atestado Médico',
-                            'url' => '/prescricao_atestado_medico',
-                        ],
-                    ],
+                    'text' => 'Prescrição Simples',
+                    'url' => '/prescricao_simples',
+                ],
+                [
+                    'text' => 'Relatório Médico',
+                    'url' => '/relatorio_medico',
+                ],
+                [
+                    'text' => 'Controle Especial',
+                    'url' => '/prescricao_controle_especial',
+                ],
+                [
+                    'text' => 'Receituário Antimicrobiano',
+                    'url' => '/prescricao_antimicrobianos',
+                ],
+                [
+                    'text' => 'Atestado Médico',
+                    'url' => '/prescricao_atestado_medico',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Dispensações',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Dispensações Simples',
+                    'url' => '/prescricao_simples',
+                ],
+                [
+                    'text' => 'Dispensação especial',
+                    'url' => '/relatorio_medico',
+                ],
+                [
+                    'text' => 'Dispensação antimicrobiano',
+                    'url' => '/prescricao_controle_especial',
                 ],
             ],
         ],
         ['header' => 'labels'],
         [
-            'text' => 'important',
+            'text' => 'Alerta',
             'icon_color' => 'red',
             'url' => '#',
         ],
