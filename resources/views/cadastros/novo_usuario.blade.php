@@ -1,485 +1,337 @@
 @extends('layouts.app')
 
-@section('title', 'Novo usuário')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
-<!-- Inclua o CSS do Select2 -->
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<style>
-    .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
-    list-style: none;
-    background-color: #5897fb;
-    padding-left: 1.5em;
-    }
-    .select2-container .select2-search--inline {
-    float: left;
-    background-color: white !important;
-    }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-    color: #000000 !important;
-    }
-    .select2-container--default .select2-selection--multiple {
-    background-color: white;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    cursor: text;
-    min-width: 340px;
-    min-height: 40px;
-    }
+{{-- Customize layout sections --}}
+@push('head')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+</script>
+@section('subtitle', 'Welcome')
+@section('content_header_title', 'Home')
+@section('content_header_subtitle', 'Welcome')
 
+{{-- Content body: main page content --}}
 
-</style>
-<!-- Inclua o jQuery e o JavaScript do Select2 -->
 @section('content_body')
-    <h2> Cadastro de novo Usuário</h2>
-    <div class="col-md-12">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Pessoa - inclusão de dados</h3>
-            </div>
-            <form id="userForm">
-                <div class="bs-stepper" id="stepper_1">
-                    <div class="bs-stepper-header" role="tablist">
-                        <div class="step" data-target="#dados-basicos">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="dados-basicos" id="dados-basicos-trigger" aria-labelledby="step1">
-                                <span class="bs-stepper-circle">1</span>
-                                <span class="bs-stepper-label" id="step1">Dados Básicos</span>
-                            </button>
+    <div class="container">
+       <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+        <span class="sr-only">20% Complete</span>
+    </div>
+</div>
+        <div class="stepper">
+            <ul class="nav nav-pills mb-3 mt-3 justify-content-between" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dados Básicos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-phone-tab" data-bs-toggle="pill" data-bs-target="#pills-phone" type="button" role="tab" aria-controls="pills-phone" aria-selected="false">Telefones</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-people-type-tab" data-bs-toggle="pill" data-bs-target="#pills-people-type" type="button" role="tab" aria-controls="pills-people-type" aria-selected="false">Tipo pessoa</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-additional-details-tab" data-bs-toggle="pill" data-bs-target="#pills-additional-details" type="button" role="tab" aria-controls="pills-additional-details" aria-selected="false">Detalhes adicionais</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-summary-tab" data-bs-toggle="pill" data-bs-target="#pills-summary" type="button" role="tab" aria-controls="pills-summary" aria-selected="false">Resumo</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active col-md-6" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Conteúdo do Passo 1
+                  <form method="POST" id="passo_1">
+                    <div class="form-group">
+                        <label for="full-name">Nome Completo</label>
+                        <input type="text" class="form-control" id="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF (11 dígitos)</label>
+                        <input type="text" class="form-control" id="cpf" maxlength="11" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-date">Data de Nascimento</label>
+                        <input type="date" class="form-control" id="birth-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nacionalidade</label>
+                        <select id="nationality" class="form-control select2" required>
+                            <option value="">Selecione</option>
+                            <!-- Adicione opções de nacionalidade -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="naturalness">Naturalidade</label>
+                        <select id="naturalness" class="form-control select2" required>
+                            <option value="">Selecione</option>
+                            <!-- Adicione opções de naturalidade -->
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
+                </div>
+
+
+                <div class="tab-pane fade col-md-6" id="pills-phone" role="tabpanel" aria-labelledby="pills-phone-tab">Conteúdo do Passo 2
+
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="text" class="form-control" id="phone" required>
+                        <label class="text-danger">Marcar como emergência</label>
+                        <input type="checkbox" id="emergency">
+                    </div>
+                        <button class="btn btn-secondary" onclick="addPhone()">Adicionar Telefone</button>
+                        <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
+                        <button class="btn btn-secondary" onclick="prevStep()">Retornar</button>
+                    </div>
+
+
+                <div class="tab-pane fade col-md-6" id="pills-people-type" role="tabpanel" aria-labelledby="pills-people-type-tab">Conteúdo do Passo 3
+
+                    <div class="form-group">
+                        <label for="person-type-select">Tipo de Pessoa</label>
+                        <select id="person-type-select" class="form-control" onchange="showPersonTypeFields()" required>
+                            <option value="">Selecione</option>
+                            <option value="medico">Médico</option>
+                            <option value="funcionario">Funcionário</option>
+                            <option value="farmaceutico">Farmacêutico</option>
+                            <option value="paciente">Paciente</option>
+                        </select>
+                    </div>
+                    <div id="medico-fields" style="display:block;">
+                        <div class="form-group">
+                            <label for="crm">CRM</label>
+                            <input type="text" class="form-control" id="crm">
                         </div>
-                        <div class="line"></div>
-                        <div class="step" data-target="#telefones">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="telefones" id="telefones-trigger" aria-labelledby="step2">
-                                <span class="bs-stepper-circle">2</span>
-                                <span class="bs-stepper-label" id="step2">Telefones</span>
-                            </button>
-                        </div>
-                        <div class="line"></div>
-                        <div class="step" data-target="#tipo-pessoa">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="tipo-pessoa" id="tipo-pessoa-trigger" aria-labelledby="step3">
-                                <span class="bs-stepper-circle">3</span>
-                                <span class="bs-stepper-label" id="step3">Tipo Pessoa</span>
-                            </button>
-                        </div>
-                        <div class="line"></div>
-                        <div class="step" data-target="#detalhes-pessoa">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="detalhes-pessoa" id="detalhes-pessoa-trigger" aria-labelledby="step4">
-                                <span class="bs-stepper-circle">4</span>
-                                <span class="bs-stepper-label" id="step4">Detalhes Pessoa</span>
-                            </button>
-                        </div>
-                        <div class="line"></div>
-                        <div class="step" data-target="#resumo">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="resumo" id="resumo-trigger" aria-labelledby="step5">
-                                <span class="bs-stepper-circle">5</span>
-                                <span class="bs-stepper-label" id="step5">Resumo</span>
-                            </button>
+                        <div class="form-group">
+                            <label for="specialties">Especialidades</label>
+                            <select id="specialties" class="form-control select2" multiple>
+                                <option value="cardiologia">Cardiologia</option>
+                                <option value="pediatria">Pediatria</option>
+                                <!-- Adicione mais especialidades -->
+                            </select>
                         </div>
                     </div>
-                    <div class="bs-stepper-content">
-                        {{-- Passo 1 - dados básicos --}}
-                        <div id="dados-basicos" class="content" role="tabpanel" aria-labelledby="dados-basicos-trigger">
-                            <div class="form-group">
-                                <label for="nome_usuario_1">Nome Completo</label>
-                                <input type="text" class="form-control col-md-6" id="nome_usuario_1" placeholder="Adicione nome completo" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cpf_usuario_1">CPF</label>
-                                <input type="text" class="form-control col-md-4" id="cpf_usuario_1" placeholder="Insira apenas números" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
-                                <small class="form-text text-muted">Digite apenas numeros sem traços ou pontos.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="data_nascimento_1">Data Nascimento</label>
-                                <input type="date" class="form-control col-md-4" id="data_nascimento_1" placeholder="Insira apenas números" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nacionalidade_1">Nacionalidade</label>
-                                <select class="form-control col-md-4" id="nacionalidade_1">
-                                    <option value="" selected>Escolha uma opção</option>
-                                    <option value="Brasileiro">Brasileiro</option>
-                                    <option value="Estrangeiro">Estrangeiro</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="naturalidade_1">Naturalidade</label>
-                                <select class="form-control col-md-4" id="naturalidade_1">
-                                    <option value="" selected>Escolha uma opção</option>
-                                    <option value="São Paulo">São Paulo</option>
-                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
-                                    <option value="Minas Gerais">Minas Gerais</option>
-                                    <option value="Bahia">Bahia</option>
-                                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                                </select>
-                            </div>
-                        </div>
-                        {{-- fim do passo 1 --}}
-                        {{-- Passo 2 - dados de telefone --}}
-                        <div id="telefones" class="content" role="tabpanel" aria-labelledby="telefones-trigger">
-                            <div id="telefone-container" class="mb-2">
-                                <label for="telefone_usuario_2" class="form-label">Telefone</label>
-                                <div class="form-group d-flex align-items-center">
-                                    <input type="tel" class="form-control col-md-4 me-3" id="telefone_usuario_2" placeholder="Ex: (XX) XXXXX-XXXX" style="margin-bottom: 0;">
-                                    <button type="button" class="btn btn-secondary mx-1" id="add-telefone">+</button>
-                                </div>
-                                <small class="form-text text-muted">Insira o número de telefone no formato (XX) XXXXX-XXXX.</small>
-                            </div>
-                        </div>
-                        {{-- fim do passo 2 --}}
-                        {{-- Passo 3 - dados tipo pessoa --}}
-                        <div id="tipo-pessoa" class="content" role="tabpanel" aria-labelledby="tipo-pessoa-trigger">
-                            <div class="form-group">
-                                <label for="tipo_usuario">Tipo de Pessoa</label>
-                                <select class="form-control col-md-4" id="tipo_usuario">
-                                    <option selected>Escolha uma opção</option>
-                                    <option value="Funcionario">Funcionário</option>
-                                    <option value="Medico">Médico</option>
-                                    <option value="Paciente">Paciente</option>
-                                    <option value="Farmaceutico">Farmacêutico</option>
-                                </select>
-                                <small class="form text text-muted">A seleção resulta em campos adicionais relevantes.</small>
-                            </div>
-                            <div id="campos-adicionais" style="display: none;">
-                                <div id="campo_funcionario" class="form-group" style="display: none;">
-                                    <label for="funcao_usuario">Função</label>
-                                    <input type="text" class="form-control col-md-4" id="funcao_usuario" placeholder="Insira a função">
-                                </div>
-                                <div id="campo_medico" class="form-group" style="display: none;">
-                                    <label for="crm_usuario">CRM</label>
-                                    <input type="text" class="form-control col-md-4" id="crm_usuario" placeholder="Insira o CRM">
-                                </div>
-                                <div id="campo_medico_especialidade" class="form-group" style="display: none;">
-                                    <div>
-                                        <label for="especialidade_usuario">Especialidade</label>
-                                    </div>
-                                    <select class="form-control select2 col-md-8" multiple data-placeholder="Selecione uma especialidade" id="especialidade_usuario" tabindex="-1" aria-hidden="true">
-                                        <option value="administracao-em-saude">ADMINISTRAÇÃO EM SAÚDE</option>
-                                        <option value="acupuntura">ACUPUNTURA</option>
-                                        <option value="administracao-hospitalar">ADMINISTRAÇÃO HOSPITALAR</option>
-                                        <option value="alergia-e-imunologia">ALERGIA E IMUNOLOGIA</option>
-                                        <option value="alergia-e-imunopatologia">ALERGIA E IMUNOPATOLOGIA</option>
-                                        <option value="anatomia-patologica">ANATOMIA PATOLÓGICA</option>
-                                        <option value="anestesiologia">ANESTESIOLOGIA</option>
-                                        <option value="angiologia-e-cirurgia-vascular">ANGIOLOGIA E CIRURGIA VASCULAR</option>
-                                        <option value="angiologia">ANGIOLOGIA</option>
-                                        <option value="broncoesofagologia">BRONCOESOFAGOLOGIA</option>
-                                        <option value="cancerologia">CANCEROLOGIA</option>
-                                        <option value="cancerologia-cirurgica">CANCEROLOGIA CIRÚRGICA</option>
-                                        <option value="cancerologia-pediatrica">CANCEROLOGIA PEDIÁTRICA</option>
-                                        <option value="cardiologia">CARDIOLOGIA</option>
-                                        <option value="cirurgia-cardiovascular">CIRURGIA CARDIOVASCULAR</option>
-                                        <option value="cirurgia-da-mao">CIRURGIA DA MÃO</option>
-                                        <option value="cirurgia-de-cabeca-e-pescoco">CIRURGIA DE CABEÇA E PESCOÇO</option>
-                                        <option value="cirurgia-digestiva">CIRURGIA DIGESTIVA</option>
-                                        <option value="cirurgia-do-aparelho-digestivo">CIRURGIA DO APARELHO DIGESTIVO</option>
-                                        <option value="cirurgia-do-trauma">CIRURGIA DO TRAUMA</option>
-                                        <option value="cirurgia-gastroenterologica">CIRURGIA GASTROENTEROLÓGICA</option>
-                                        <option value="cirurgia-geral">CIRURGIA GERAL</option>
-                                        <option value="cirurgia-oncologica">CIRURGIA ONCOLÓGICA
-                                        </option>
-                                        <option value="cirurgia-pediatrica">CIRURGIA PEDIÁTRICA
-                                        </option>
-                                        <option value="cirurgia-plastica">CIRURGIA PLÁSTICA
-                                        </option>
-                                        <option value="cirurgia-toracica">CIRURGIA TORÁCICA
-                                        </option>
-                                        <option value="cirurgia-toraxica">CIRURGIA TORÁXICA
-                                        </option>
-                                        <option value="cirurgia-vascular">CIRURGIA VASCULAR
-                                        </option>
-                                        <option value="cirurgia-vascular-periferica">CIRURGIA
-                                            VASCULAR PERIFÉRICA</option>
-                                        <option value="citopatologia">CITOPATOLOGIA</option>
-                                        <option value="clinica-medica">CLÍNICA MÉDICA</option>
-                                        <option value="coloproctologia">COLOPROCTOLOGIA</option>
-                                        <option value="densitometria-ossea">DENSITOMETRIA ÓSSEA
-                                        </option>
-                                        <option value="dermatologia">DERMATOLOGIA</option>
-                                        <option value="diagnostico-por-imagem">DIAGNÓSTICO POR
-                                            IMAGEM</option>
-                                        <option value="doencas-infecciosas-e-parasitarias">DOENÇAS
-                                            INFECCIOSAS E PARASITÁRIAS</option>
-                                        <option value="eletroencefalografia">ELETROENCEFALOGRAFIA
-                                        </option>
-                                        <option value="endocrinologia">ENDOCRINOLOGIA</option>
-                                        <option value="endocrinologia-e-metabolomia">ENDOCRINOLOGIA
-                                            E METABOLOGIA</option>
-                                        <option value="endoscopia">ENDOSCOPIA</option>
-                                        <option value="endoscopia-digestiva">ENDOSCOPIA DIGESTIVA
-                                        </option>
-                                        <option value="endoscopia-peroral">ENDOSCOPIA PERORAL
-                                        </option>
-                                        <option value="endoscopia-peroral-vias-aereas">ENDOSCOPIA
-                                            PERORAL VIAS AÉREAS</option>
-                                        <option value="fisiatria">FISIATRIA</option>
-                                        <option value="foniatria">F ONIATRIA</option>
-                                        <option value="gastroenterologia">GASTROENTEROLOGIA
-                                        </option>
-                                        <option value="genetica-medica">GENÉTICA MÉDICA</option>
-                                        <option value="geriatria">GERIATRIA</option>
-                                        <option value="ginecologia">GINECOLOGIA</option>
-                                        <option value="hematologia">HEMATOLOGIA</option>
-                                        <option value="homeopatia">HOMEOPATIA</option>
-                                        <option value="infectologia">INFECTOLOGIA</option>
-                                        <option value="medicina-de-familia-e-comunidade">MEDICINA
-                                            DE
-                                            FAMÍLIA E COMUNIDADE</option>
-                                        <option value="medicina-esportiva">MEDICINA ESPORTIVA
-                                        </option>
-                                        <option value="medicina-fisica-e-reabilitacao">MEDICINA
-                                            FÍSICA E REABILITAÇÃO</option>
-                                        <option value="medicina-intensiva">MEDICINA INTENSIVA
-                                        </option>
-                                        <option value="medicina-paliativa">MEDICINA PALIATIVA
-                                        </option>
-                                        <option value="medicina-preventiva">MEDICINA PREVENTIVA
-                                        </option>
-                                        <option value="medicina-legal">MEDICINA LEGAL</option>
-                                        <option value="nefrologia">NEFROLOGIA</option>
-                                        <option value="neurologia">NEUROLOGIA</option>
-                                        <option value="neurocirurgia">NEUROCIRURGIA</option>
-                                        <option value="nutrologia">NUTROLOGIA</option>
-                                        <option value="obstetricia">OBSTETRÍCIA</option>
-                                        <option value="oftalmologia">OFTALMOLOGIA</option>
-                                        <option value="oncologia">ONCOLOGIA</option>
-                                        <option value="otorrinolaringologia">OTORRINOLARINGOLOGIA
-                                        </option>
-                                        <option value="pediatria">PEDIATRIA</option>
-                                        <option value="pneumologia">PNEUMOLOGIA</option>
-                                        <option value="psiquiatria">PSIQUIATRIA</option>
-                                        <option value="psicologia">PSICOLOGIA</option>
-                                        <option value="reumatologia">REUMATOLOGIA</option>
-                                        <option value="saude-da-mulher">SAÚDE DA MULHER</option>
-                                        <option value="saude-da-crianca-e-do-adolescente">SAÚDE DA
-                                            CRIANÇA E DO ADOLESCENTE</option>
-                                        <option value="saude-do-adulto">SAÚDE DO ADULTO</option>
-                                        <option value="saude-do-idoso">SAÚDE DO IDOSO</option>
-                                        <option value="terapia-ocupacional">TERAPIA OCUPACIONAL
-                                        </option>
-                                        <option value="urologia">UROLOGIA</option>
-                                        </select>
-                                        <small class="form-text text-muted">Selecione uma ou mais especialidades.</small>
-                                </div>
-                            </div>
-                            <div id="campo_paciente" class="form-group" style="display: none;">
-                                <label for="sus_usuario">Número do Cartão do SUS</label>
-                                <input type="text" id="sus_usuario" class="form-control col-md-4" placeholder="Insira o número do cartão do SUS">
-                            </div>
-                            <div id="campo_farmaceutico" class="form-group" style="display: none;">
-                                <label for="crf_usuario">CRF</label>
-                                <input type="text" id="crf_usuario" class="form-control col-md-4" placeholder="Insira o CRF">
-                            </div>
-                        </div>
-                        {{-- fim do passo 3 --}}
-                        {{-- passo 4 - detalhes pessoa --}}
-                        <div id="detalhes-pessoa" class="content" role="tabpanel" aria-labelledby="detalhes-pessoa-trigger">
+                    <div id="funcionario-fields" style="display:block;">
                         <div class="form-group">
-                            <label for="nome_social_4">Nome Social</label>
-                            <input type="text" class="form-control col-md-6" id="nome_social_4" placeholder="Insira o Nome Social" disabled>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="toggle-nome-social">
-                                <label for="toggle-nome-social" class="form-check-label">Habilitar Nome Social</label>
-                            </div>
-                            <small class="form-text text-muted">O nome social será utilizado em comunicações e documentos.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="gen_usuario_4">Gênero</label>
-                            <select class="form-control col-md-4" id="gen_usuario_4">
-                                <option>Escolha uma opção</option>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
-                                <option value="Não informado">Prefiro não informar</option>
-                                </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="est_civil_4">Estado Cívil</label>
-                            <select class="form-control col-md-4" id="est_civil_4">
-                                <option>Escolha uma opção</option>
-                                <option value="Solteiro(a)">Solteiro(a)</option>
-                                <option value="Casado(a)">Casado(a)</option>
-                                <option value="Separado(a)">Separado(a)</option>
-                                <option value="União estável">União estável</option>
-                                <option value="Divorciado(a)">Divorciado(a)</option>
-                                <option value="Viúvo(a)">Viúvo(a)</option>
-                                </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="endereco_usuario_4">Endereço</label>
-                            <input type="text" class="form-control col-md-6"
-                                id="endereco_usuario_4" placeholder="Insira o endereço">
-                        </div>
-                        <div class="form-group">
-                            <label for="observacoes_usuario_4">Observações</label>
-                            <textarea class="form-control col-md-6" id="observacoes_usuario_4" placeholder="observações para o usuário" rows="5"></textarea>
+                            <label for="job-title">Função Exercida</label>
+                            <input type="text" class="form-control" id="job-title">
                         </div>
                     </div>
-                    {{-- fim do passo 4 --}}
-                    {{-- passo 5 - resumo do usuario --}}
-                    <div id="resumo" class="content" role="tabpanel" aria-labelledby="resumo-trigger">
-                        <h2>Resumo</h2>
-                        <table id="infoTable" class="display">
+                    <div id="farmaceutico-fields" style="display:block;">
+                        <div class="form-group">
+                            <label for="crf">CRF</label>
+                            <input type="text" class="form-control" id="crf">
+                        </div>
+                    </div>
+                    <div id="paciente-fields" style="display:block;">
+                        <div class="form-group">
+                            <label for="sus-card">Número do Cartão do SUS</label>
+                            <input type="text" class="form-control" id="sus-card">
+                        </div>
+                    </div>
+                        <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
+                        <button class="btn btn-secondary" onclick="prevStep()">Retornar</button>
+                </div>
+
+                <div class="tab-pane fade col-md-6" id="pills-additional-details" role="tabpanel" aria-labelledby="pills-additional-details-tab">Conteúdo do Passo 4
+                    <div class="form-group">
+                        <label for="social-name">Nome Social</label>
+                        <input type="text" class="form-control" id="social-name" disabled>
+                        <input type="checkbox" id="enable-social-name" onchange="toggleSocialName()"> Habilitar Nome Social
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gênero</label>
+                        <select id="gender" class="form-control" required>
+                            <option value="">Selecione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="prefiro-nao-informar">Prefiro não informar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="marital-status">Estado Civil</label>
+                        <select id="marital-status" class="form-control" required>
+                            <option value="">Selecione</option>
+                            <option value="solteiro">Solteiro(a)</option>
+                            <option value="casado">Casado(a)</option>
+                            <option value="separado">Separado(a)</option>
+                            <option value="uniao-estavel">União Estável</option>
+                            <option value="divorciado">Divorciado(a)</option>
+                            <option value="viuvo">Vi úvo(a)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Endereço</label>
+                        <input type="text" class="form-control" id="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="observations">Observações</label>
+                        <textarea class="form-control" id="observations" rows="3"></textarea>
+                    </div>
+
+                        <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
+                        <button class="btn btn-secondary" onclick="prevStep()">Retornar</button>
+                    </div>
+
+                <div class="tab-pane fade" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">Conteúdo do Passo 5
+                    <div id="summary" class="content" role="tabpanel" aria-labelledby="summary-trigger">
+
+                        <h3>Resumo</h3>
+                        <table id="summary-table" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Nome Completo</th>
-                                    <th>CPF</th>
-                                    <th>CPF</th>
-                                    <th>Data Nascimento</th>
-                                    <th>Nacionalidade</th>
-                                    <th>Naturalidade</th>
-                                    <th>Telefone</th>
-                                    <th>Tipo de Pessoa</th>
-                                    <th>Descrição da função</th>
-                                    <th>CRM</th>
-                                    <th>Especialidade</th>
-                                    <th>Cartão SUS</th>
-                                    <th>CRF</th>
-                                    <th>Nome Social</th>
-                                    <th>Gênero</th>
-                                    <th>Estado Cívil</th>
-                                    <th>Endereço</th>
-                                    <th>Observações</th>
+                                    <th>Campo</th>
+                                    <th>Valor</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- Os dados preenchidos serão inseridos aqui via JavaScript -->
                             </tbody>
                         </table>
-                    </div>
-                    <div class="justify-content-space-between">
-                        <button type="button" class="btn btn-primary" id="prevBtn">Voltar</button>
-                        <button type="button" class="btn btn-primary" id="nextBtn">Próximo</button>
+                        <button class="btn btn-success" onclick="saveData()">Salvar</button>
+                        <button class="btn btn-secondary" onclick="prevStep()">Retornar</button>
                     </div>
                 </div>
+                </form>
             </div>
-            </form>
-            {{-- fim do passo 5 --}}
         </div>
     </div>
+@stop
+
+{{-- Push extra CSS --}}
 
 @push('css')
+{{-- Add here extra stylesheets --}}
+{{--
+<link rel="stylesheet" href="/css/admin_custom.css"> --}}
 
 @endpush
+
+{{-- Push extra scripts --}}
+
 @push('js')
 
-<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-
 <script>
-    $(document).ready(function () {
-    const totalSteps = $('.bs-stepper-content .content').length;
-    let currentStep = 0;
+// Obtendo os elementos do DOM
+const nextButton = document.querySelector('.btn-primary');
+const form = document.getElementById('passo_1');
 
-    // Inicializa o Select2 para o select de especialidades médicas
-    $('#especialidade_usuario').select2({
-        placeholder: "Escolha uma ou mais especialidades",
-        allowClear: true,
-        multiple: true,
-        dropdownAutoWidth: true,
-        closeOnSelect: false,
-    });
+// Função para verificar se o formulário é válido
+function validateForm() {
+    // Obtendo os campos do formulário
+    const fullName = document.getElementById('full-name');
+    const cpf = document.getElementById('cpf');
+    const birthDate = document.getElementById('birth-date');
+    const nationality = document.getElementById('nationality');
+    const naturalness = document.getElementById('naturalness');
 
-    // Função para atualizar a visibilidade dos passos
-    function updateStepVisibility() {
-        $('.bs-stepper-content .content').removeClass('active').eq(currentStep).addClass('active');
-        $('#prevBtn').toggle(currentStep > 0);
-        $('#nextBtn').text(currentStep === totalSteps - 1 ? 'Finalizar' : 'Próximo');
+    // Verificando se os campos estão preenchidos
+    if (fullName.value.trim() === '' || cpf.value.trim() === '' || birthDate.value.trim() === '' || nationality.value.trim() === '' || naturalness.value.trim() === '') {
+        return false;
     }
 
-    // Evento para o botão "Próximo"
-    $('#nextBtn').on('click', function () {
-        if (validateCurrentStep()) {
-            currentStep++;
-            updateStepVisibility();
-        }
-    });
-
-    // Evento para o botão "Voltar"
-    $('#prevBtn').on('click', function () {
-        if (currentStep > 0) {
-            currentStep--;
-            updateStepVisibility();
-        }
-    });
-
-    // Função para validar o passo atual
-    function validateCurrentStep() {
-        const currentContent = $('.bs-stepper-content .content').eq(currentStep);
-        let isValid = true;
-
-        currentContent.find('input[required], select[required]').each(function () {
-            if (!$(this).val()) {
-                $(this).addClass('is-invalid'); // Adiciona classe de erro
-                isValid = false;
-            } else {
-                $(this).removeClass('is-invalid'); // Remove classe de erro
-            }
-        });
-
-        return isValid;
+    // Verificando se o CPF é válido
+    if (!validateCPF(cpf.value)) {
+        return false;
     }
 
-    // Adicionar novos telefones
-    let telefoneCount = 1;
-    $('#add-telefone').on('click', function () {
-        telefoneCount++;
-        const newTelefone = `
-            <div class="form-group d-flex align-items-center mb-2" id="telefone_usuario${telefoneCount}">
-                <input type="tel" class="form-control col-md-4 me-3" placeholder="Ex: (XX) XXXXX-XXXX" required>
-                <button type="button" class="btn btn-danger remove-telefone ml-1">-</button>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="emergencia_usuario${telefoneCount}">
-                <label class="form-check-label" for="emergencia_usuario${telefoneCount}">Emergência</label>
-            </div>
-        `;
-        $('#telefone-container').append(newTelefone);
-    });
+    // Verificando se a data de nascimento é válida
+    if (!validateBirthDate(birthDate.value)) {
+        return false;
+    }
 
-    // Evento para remover um campo de telefone
-    $(document).on('click', '.remove-telefone', function () {
-        $(this).closest('.form-group').next('.form-check').remove(); // Remove o checkbox de emergência
-        $(this).closest('.form-group').remove(); // Remove o campo de telefone
-    });
+    return true;
+}
+</script>
+<script>
+// Função para validar o CPF
+function validateCPF(cpf) {
+    // Removendo caracteres não numéricos
+    cpf = cpf.replace(/[^\d]+/g, '');
 
-    // Função para mostrar/ocultar campos com base no tipo de pessoa selecionado
-    $('#tipo_usuario').on('change', function () {
-        const tipo = $(this).val();
-        console.log("Tipo de usuário selecionado:", tipo); // Log do tipo selecionado
+    // Verificando se o CPF tem 11 dígitos
+    if (cpf.length !== 11) {
+        return false;
+    }
 
-        // Esconde todos os campos adicionais antes de mostrar os relevantes
-        $('#campos-adicionais > div').hide();
-        $('#campos-adicionais').show(); // Mostra o container de campos adicionais
+    // Verificando se o CPF é válido
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+        sum += parseInt(cpf[i]) * (10 - i);
+    }
+    let remainder = sum % 11;
+    if (remainder < 2) {
+        remainder = 0;
+    } else {
+        remainder = 11 - remainder;
+    }
+    if (remainder !== parseInt(cpf[9])) {
+        return false;
+    }
 
-        // Mostra os campos apropriados com base na seleção
-        switch (tipo) {
-            case 'Funcionario':
-                $('#campo_funcionario').show();
-                break;
-            case 'Medico':
-                $('#campo_medico').show();
-                $('#campo_medico_especialidade').show();
-                break;
-            case 'Paciente':
-                $('#campo_paciente').show();
-                break;
-            case 'Farmaceutico':
-                $('#campo_farmaceutico').show();
-                break;
-            default:
-                $('#campos-adicionais').hide(); // Esconde o container se nenhum tipo for selecionado
-                break;
-        }
-    });
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
+        sum += parseInt(cpf[i]) * (11 - i);
+    }
+    remainder = sum % 11;
+    if (remainder < 2) {
+        remainder = 0;
+    } else {
+        remainder = 11 - remainder;
+    }
+    if (remainder !== parseInt(cpf[10])) {
+        return false;
+    }
 
-    // Inicializa a visibilidade dos passos
-    updateStepVisibility();
+    return true;
+}
+</script>
+<script>
+// Função para validar a data de nascimento
+function validateBirthDate(birthDate) {
+    // Verificando se a data de nascimento é válida
+    const date = new Date(birthDate);
+    if (isNaN(date.getTime())) {
+        return false;
+    }
+
+    // Verificando se a data de nascimento é anterior à data atual
+    const today = new Date();
+    if (date >= today) {
+        return false;
+    }
+
+    return true;
+}
+
+nextButton.addEventListener('click', () => {
+    if (validateForm()) {
+        // Se o formulário for válido, permite avançar para o próximo passo
+        // ... código para avançar para o próximo passo
+    } else {
+        // Se o formulário for inválido, exibe uma mensagem de erro
+        alert('Por favor, preencha todos os campos obrigatórios.');
+    }
 });
+</script>
+<script>
+// Função para salvar o progresso
+function saveProgress(stepIndex) {
+    localStorage.setItem('currentStep', stepIndex);
+}
+
+// Função para carregar o progresso
+function loadProgress() {
+    const savedStep = localStorage.getItem('currentStep');
+    if (savedStep) {
+        // Exibir o passo salvo
+        // ... código para exibir o passo
+        const stepper = new Stepper(document.querySelector('.bs-stepper'));
+        stepper.to(savedStep);
+    }
+}
+
+// Carregar o progresso ao carregar a página
+loadProgress();
 </script>
 
 @endpush
-
-
-@endsection
