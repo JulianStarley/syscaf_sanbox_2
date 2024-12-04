@@ -56,6 +56,8 @@
                         <label for="nationality">Nacionalidade</label>
                         <select id="nationality" class="form-control select2" required>
                             <option value="">Selecione</option>
+                            <option value="brasileira">Brasileira</option>
+                            <option value="estrangeira">Estrangeira</option>
                             <!-- Adicione opções de nacionalidade -->
                         </select>
                     </div>
@@ -63,6 +65,9 @@
                         <label for="naturalness">Naturalidade</label>
                         <select id="naturalness" class="form-control select2" required>
                             <option value="">Selecione</option>
+                            <option value="bahia">BA</option>
+                            <option value="rio de janeiro">RJ</option>
+                            <option value="minas gerais">MG</option>
                             <!-- Adicione opções de naturalidade -->
                         </select>
                     </div>
@@ -333,5 +338,46 @@ function loadProgress() {
 // Carregar o progresso ao carregar a página
 loadProgress();
 </script>
+<script>
+    let currentStep = 0; // Índice do passo atual
+const steps = document.querySelectorAll('.tab-pane'); // Seleciona todos os passos
 
+function nextStep() {
+    // Verifica se o passo atual é válido antes de avançar
+    if (validateForm()) {
+        // Oculta o passo atual
+        steps[currentStep].classList.remove('show', 'active');
+        // Incrementa o índice do passo atual
+        currentStep++;
+        // Verifica se o próximo passo existe
+        if (currentStep < steps.length) {
+            // Exibe o próximo passo
+            steps[currentStep].classList.add('show', 'active');
+        }
+    } else {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+    }
+}
+
+function prevStep() {
+    // Oculta o passo atual
+    steps[currentStep].classList.remove('show', 'active');
+    // Decrementa o índice do passo atual
+    currentStep--;
+    // Verifica se o passo anterior existe
+    if (currentStep >= 0) {
+        // Exibe o passo anterior
+        steps[currentStep].classList.add('show', 'active');
+    }
+}
+
+// Adiciona os eventos de clique aos botões
+document.querySelectorAll('.btn-primary').forEach(button => {
+    button.addEventListener('click', nextStep);
+});
+
+document.querySelectorAll('.btn-secondary').forEach(button => {
+    button.addEventListener('click', prevStep);
+});
+</script>
 @endpush
