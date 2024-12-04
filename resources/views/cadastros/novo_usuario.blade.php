@@ -5,6 +5,21 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>
+{{-- jquery adminlte --}}
+<script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
+<script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://adminlte.io/themes/v3/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="https://adminlte.io/themes/v3/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="https://adminlte.io/themes/v3/plugins/jquery-validation/additional-methods.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+</script>
 @section('subtitle', 'Welcome')
 @section('content_header_title', 'Home')
 @section('content_header_subtitle', 'Welcome')
@@ -39,22 +54,22 @@
 
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active col-md-6" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Conteúdo do Passo 1
-                  <form method="POST" id="passo_1">
+                  <form id="passo_1" class="needs-validation" name="passo_1" onsubmit="return validateForm()" novalidate>
                     <div class="form-group">
                         <label for="full-name">Nome Completo</label>
-                        <input type="text" class="form-control" id="full-name" required>
+                        <input type="text" class="form-control" id="full-name" name="full-name" placeholder="Entre com o nome completo sem abreviações" aria-describedby="inputFullName-error" aria-invalid="true" required>
                     </div>
                     <div class="form-group">
                         <label for="cpf">CPF (11 dígitos)</label>
-                        <input type="text" class="form-control" id="cpf" maxlength="11" required>
+                        <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11"  required>
                     </div>
                     <div class="form-group">
                         <label for="birth-date">Data de Nascimento</label>
-                        <input type="date" class="form-control" id="birth-date" required>
+                        <input type="date" class="form-control" id="birth-date" name="birth-date"  required>
                     </div>
                     <div class="form-group">
                         <label for="nationality">Nacionalidade</label>
-                        <select id="nationality" class="form-control select2" required>
+                        <select id="nationality" class="form-control select2" name="nationality"  required>
                             <option value="">Selecione</option>
                             <option value="brasileira">Brasileira</option>
                             <option value="estrangeira">Estrangeira</option>
@@ -63,7 +78,7 @@
                     </div>
                     <div class="form-group">
                         <label for="naturalness">Naturalidade</label>
-                        <select id="naturalness" class="form-control select2" required>
+                        <select id="naturalness" class="form-control select2" name="naturalness" required>
                             <option value="">Selecione</option>
                             <option value="bahia">BA</option>
                             <option value="rio de janeiro">RJ</option>
@@ -79,7 +94,7 @@
 
                     <div class="form-group">
                         <label for="phone">Telefone</label>
-                        <input type="text" class="form-control" id="phone" required>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
                         <label class="text-danger">Marcar como emergência</label>
                         <input type="checkbox" id="emergency">
                     </div>
@@ -246,8 +261,7 @@ function validateForm() {
 
     return true;
 }
-</script>
-<script>
+
 // Função para validar o CPF
 function validateCPF(cpf) {
     // Removendo caracteres não numéricos
@@ -289,8 +303,7 @@ function validateCPF(cpf) {
 
     return true;
 }
-</script>
-<script>
+
 // Função para validar a data de nascimento
 function validateBirthDate(birthDate) {
     // Verificando se a data de nascimento é válida
@@ -311,66 +324,63 @@ function validateBirthDate(birthDate) {
 nextButton.addEventListener('click', () => {
     if (validateForm()) {
         // Se o formulário for válido, permite avançar para o próximo passo
-        // ... código para avançar para o próximo passo
+
     } else {
         // Se o formulário for inválido, exibe uma mensagem de erro
         alert('Por favor, preencha todos os campos obrigatórios.');
     }
 });
-</script>
-<script>
 // Função para salvar o progresso
 function saveProgress(stepIndex) {
+    if (typeof stepIndex === 'number'){
     localStorage.setItem('currentStep', stepIndex);
+}
 }
 
 // Função para carregar o progresso
 function loadProgress() {
     const savedStep = localStorage.getItem('currentStep');
-    if (savedStep) {
+    if (savedStep && !isNaN(savedStep)) {
         // Exibir o passo salvo
+        currentStep = parseInt(savedStep);
         // ... código para exibir o passo
         const stepper = new Stepper(document.querySelector('.bs-stepper'));
-        stepper.to(savedStep);
+        stepper.to(currentStep);
     }
 }
 
 // Carregar o progresso ao carregar a página
 loadProgress();
-</script>
-<script>
+
     let currentStep = 0; // Índice do passo atual
-const steps = document.querySelectorAll('.tab-pane'); // Seleciona todos os passos
+    const steps = document.querySelectorAll('.tab-pane'); // Seleciona todos os passos
 
 function nextStep() {
     // Verifica se o passo atual é válido antes de avançar
-    if (validateForm()) {
+    if (currentStep < steps.length - 1 && validateForm()) {
         // Oculta o passo atual
         steps[currentStep].classList.remove('show', 'active');
         // Incrementa o índice do passo atual
         currentStep++;
-        // Verifica se o próximo passo existe
-        if (currentStep < steps.length) {
             // Exibe o próximo passo
             steps[currentStep].classList.add('show', 'active');
-        }
+
     } else {
         alert('Por favor, preencha todos os campos obrigatórios.');
     }
 }
 
 function prevStep() {
-    // Oculta o passo atual
-    steps[currentStep].classList.remove('show', 'active');
-    // Decrementa o índice do passo atual
-    currentStep--;
-    // Verifica se o passo anterior existe
-    if (currentStep >= 0) {
+    // Verifica se o passo atual é maior que 0 antes de retroceder
+    if (currentStep > 0) {
+        // Oculta o passo atual
+        steps[currentStep].classList.remove('show', 'active');
+        // Decrementa o índice do passo atual
+        currentStep--;
         // Exibe o passo anterior
         steps[currentStep].classList.add('show', 'active');
     }
 }
-
 // Adiciona os eventos de clique aos botões
 document.querySelectorAll('.btn-primary').forEach(button => {
     button.addEventListener('click', nextStep);
@@ -378,6 +388,22 @@ document.querySelectorAll('.btn-primary').forEach(button => {
 
 document.querySelectorAll('.btn-secondary').forEach(button => {
     button.addEventListener('click', prevStep);
+});
+</script>
+<script>
+
+document.querySelectorAll('#full-name, #cpf, #birth-date, #nationality, #naturalness').forEach(element => {
+    let alertShown = false; // Variável de controle para mostrar o alerta apenas uma vez
+
+    element.addEventListener('focusout', function() {
+        if (this.value.trim() === "" && !alertShown) {
+            const fieldName = this.id.replace('-', ' ').replace('-', ' ');
+            alert(`O preenchimento do ${fieldName} é obrigatório`);
+            alertShown = true; // Marca que o alerta já foi mostrado
+        } else if (this.value.trim() !== "") {
+            alertShown = false; // Reseta a variável se o campo for preenchido
+        }
+    });
 });
 </script>
 @endpush
