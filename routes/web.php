@@ -67,6 +67,9 @@ Route::get('/perfil_usuario', function(){
     return view('profile.perfil_usuario');
 });
 
+Route::get('/novo_us_v2', function(){
+    return view('cadastros.novo_us_v2');
+});
 
 Auth::routes();
 

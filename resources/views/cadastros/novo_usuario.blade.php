@@ -187,7 +187,6 @@
                         <label for="observations">Observações</label>
                         <textarea class="form-control" id="observations" rows="3"></textarea>
                     </div>
-
                         <button class="btn btn-primary" onclick="nextStep()">Avançar</button>
                         <button class="btn btn-secondary" onclick="prevStep()">Retornar</button>
                     </div>

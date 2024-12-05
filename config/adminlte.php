@@ -347,6 +347,10 @@ return [
                     'url' => '/novo_usuario',
                 ],
                 [
+                    'text' => 'Novo User v2',
+                    'url' => '/novo_us_v2',
+                ],
+                [
                     'text' => 'Nova Unidade',
                     'url' => '/nova_unidade',
                 ],
