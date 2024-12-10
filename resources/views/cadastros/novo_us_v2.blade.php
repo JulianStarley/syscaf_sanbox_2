@@ -10,6 +10,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
 <!-- Include jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 @endpush
 
 @section('subtitle', 'Welcome')
@@ -88,63 +89,78 @@
         </form>
 <!-- Accordion -->
 <div class="accordion row" id="accordionExample">
-    <div class="accordion-item col-md-4">
+    <div class="accordion-item col-md-3">
         <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
-                Funcionário
+            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%">
+                <h3>Funcionário</h3>
             </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                <div class="form-group">
-                    <label for="funcao">Função</label>
-                    <input class="form-control" type="text" placeholder="Insira a função que será exercida" id="funcao" name="funcao">
+                    <x-adminlte-input name="iLabel" id="funcao" label="Função atual" placeholder="Insira a funçao atual" disable-feedback />
                 </div>
             </div>
         </div>
     </div>
-    <div class="accordion-item col-md-4">
+    <div class="accordion-item col-md-3">
         <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Médico
+            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 100%">
+                <h3>Médico</h3>
             </button>
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="crm">CRM</label>
-                        <input class="form-control" type="text" placeholder="Insira seu CRM" id="crm" name="crm">
+                        <x-adminlte-input name="iLabel" id="CRM" label="CRM" placeholder="Insira o CRM atual" disable-feedback />
                     </div>
                     <div class="form-group">
-                        <label>Especialidades</label>
-                        <select class="meuSelect " id="especialidades" name="especialidades[]" multiple>
-                            <option>Especialidade 1</option>
-                            <option>Especialidade 2</option>
-                            <option>Especialidade 3</option>
-                            <option>Especialidade 4</option>
-                            <option>Especialidade 5</option>
-                        </select>
+                        @section('plugins.Select2', true)
+                        @php
+                            $config = [
+                                "placeholder" => "Select multiple options...",
+                                "allowClear" => true,
+                                "closeOnSelect" => false,
+                            ];
+                        @endphp
+                        <x-adminlte-select2 id="sel2Category" name="sel2Category[]" label="Especialidades" :config="$config" multiple>
+                            <option>Sports</option>
+                            <option>News</option>
+                            <option>Games</option>
+                            <option>Science</option>
+                            <option>Maths</option>
+                        </x-adminlte-select2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="accordion-item">
+    <div class="accordion-item col-md-3">
         <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Farmacêutico
+            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="width: 100%">
+                <h3>Farmacêutico</h3>
             </button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                     <div class="form-group">
-                        <label for="crf">CRF</label>
-                        <input class="form-control" type="text" placeholder="Insira seu CRF" id="crf" name="crf">
+                        <x-adminlte-input name="iLabel" id="CRF" label="CRF" placeholder="Insira o CRF atual" disable-feedback />
                     </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item col-md-3">
+        <h2 class="accordion-header">
+            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="width: 100%">
+                <h3>Paciente</h3>
+            </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="form-group">
+                    <x-adminlte-input name="iLabel" id="nroSus" label="Número do cartão do SUS" placeholder="Insira o número do seu cartão SUS" disable-feedback />
+                </div>
             </div>
         </div>
     </div>
@@ -165,7 +181,11 @@
 
 @push('css')
 {{-- Add here extra stylesheets --}}
-
+<style>
+    button {
+        border-radius: 2.25em;
+    }
+</style>
 {{--
 <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 <!-- Bootstrap CSS -->
@@ -188,12 +208,9 @@
 <script>
 $(document).ready(function() {
     //Initialize Select2 Elements
-    $('.meuSelect').select2({
-    theme: 'bootstrap4',
-    closeOnSelect: false,
-    placeholder: 'Selecione um item',
-    multiple: true,
-    })
+    $('select.select2').select2({
+        theme: 'bootstrap4',
+    });
 
     // Evento para habilitar/desabilitar o campo Nome Social
     $('#checkSocialName').change(function() {
@@ -206,4 +223,4 @@ $(document).ready(function() {
 });
 });
 </script>
-@endpush
+
