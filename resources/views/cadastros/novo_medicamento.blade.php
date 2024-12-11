@@ -9,26 +9,18 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-<h2> Cadastrar Novo Medicamento</h2>
     <div class="col-md-6">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Novo Medicamento</h3>
-            </div>
+        <x-adminlte.widget.card title="Novo Medicamento" header-class="bg-primary">
             <form>
-                <div class="card-body">
                     <div class="form-group">
-                        <label for="nome1">Nome medicamento</label>
-                        <input type="text" class="form-control" id="nome1" placeholder="Adicione nome completo do Medicamento">
+                        <x-adminlte.form.input name="iLabel" id="medName" label="Nome medicamento" placeholder="Adicione nome completo do Medicamento" disable-feedback />
                     </div>
                     <div class="form-group">
-                        <label for="cod1">Código do medicamento</label>
-                        <input type="text" class="form-control" id="cod1" placeholder="atribua um código ao medicamento">
+                        <x-adminlte.form.input name="iLabel" id="codMed" label="Código do medicamento" placeholder="atribua um código ao Medicamento" disable-feedback />
                     </div>
                     <!-- Select multiple-->
                     <div class="form-group">
-                        <label>Forma Farmacêutica</label>
-                        <select class="form-control">
+                        <x-adminlte.form.select name="selBasic" label="Forma farmacêutica">
                             <option>Adesivos</option>
                             <option>Aerossol</option>
                             <option>Cápsula</option>
@@ -57,21 +49,18 @@
                             <option>Supositórios</option>
                             <option>Suspensões</option>
                             <option>Xarope</option>
-                        </select>
+                        </x-adminlte.form.select>
                     </div>
                     <div class="form-group">
-                        <label for="con1">Concentração</label>
-                        <input type="text" class="form-control" id="con1" placeholder="Indique a concentração do item">
+                        <x-adminlte.form.input name="iLabel" id="concentracaoMed" label="Concentração" placeholder="Indique a concentração do item" disable-feedback />
                     </div>
                     <div class="form-group">
-                        <label>Cor da Tarja</label>
-                        <select class="form-control">
+                        <x-adminlte-select name="selBasic" id="tarjaCor" label="Selecione a cor da tarja">
                             <option>Sem tarja</option>
                             <option>Vermelha</option>
                             <option>Vermelha sob restrição</option>
                             <option>Preta</option>
-                            <option>Cor X E</option>
-                        </select>
+                        </x-adminlte.form.select>
                     </div>
                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
                         <input type="checkbox" class="custom-control-input" id="customSwitch3">
@@ -79,16 +68,64 @@
                     </div>
 
                 <div class="form-group">
-                    <label>Observações</label>
-                    <textarea class="form-control" rows="3" placeholder="Adicione as observações necessárias"></textarea>
+                    <x-adminlte.form.textarea name="taBasic" placeholder="Inserir informações adicionais em detalhes" label="Observações" />
                 </div>
-                <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
             </form>
-            </div>
-        </div>
+        </x-adminlte.widget.card>
+    </div>
 
+ <div class="form-group">
+    {{-- Minimal with a title / no body --}}
+    <x-adminlte-card title="A card without body" />
+
+    {{-- Minimal without header / body only --}}
+    <x-adminlte-card theme="lime" theme-mode="outline">
+        A card without header...
+    </x-adminlte-card>
+
+    {{-- Disabled --}}
+    <x-adminlte-card title="Disabled Card" theme="teal" disabled>
+        A disabled card with teal theme...
+    </x-adminlte-card>
+
+    {{-- Themes --}}
+    <x-adminlte-card title="Dark Card" theme="dark" icon="fas fa-lg fa-moon">
+        A dark theme card...
+    </x-adminlte-card>
+    <x-adminlte-card title="Lightblue Card" theme="lightblue" theme-mode="outline" icon="fas fa-lg fa-envelope"
+        header-class="text-uppercase rounded-bottom border-info" removable>
+        A removable card with outline lightblue theme...
+    </x-adminlte-card>
+    <x-adminlte-card title="Purple Card" theme="purple" icon="fas fa-lg fa-fan" removable collapsible>
+        A removable and collapsible card with purple theme...
+    </x-adminlte-card>
+    <x-adminlte-card title="Success Card" theme="success" theme-mode="full" icon="fas fa-lg fa-thumbs-up"
+        collapsible="collapsed">
+        A collapsible card with full success theme and collapsed...
+    </x-adminlte-card>
+    <x-adminlte-card title="Info Card" theme="info" icon="fas fa-lg fa-bell" collapsible removable maximizable>
+        An info theme card with all the tool buttons...
+    </x-adminlte-card>
+
+    {{-- Complex / Extra tool / Footer --}}
+    <x-adminlte-card title="Form Card" theme="maroon" theme-mode="outline" class="elevation-3" body-class="bg-maroon"
+        header-class="bg-light" footer-class="bg-maroon border-top rounded border-light" icon="fas fa-lg fa-bell"
+        collapsible removable maximizable>
+        <x-slot name="toolsSlot">
+            <select class="custom-select w-auto form-control-border bg-light">
+                <option>Skin 1</option>
+                <option>Skin 2</option>
+                <option>Skin 3</option>
+            </select>
+        </x-slot>
+        <x-adminlte-input name="User" placeholder="Username" />
+        <x-adminlte-input name="Pass" type="password" placeholder="Password" />
+        <x-slot name="footerSlot">
+            <x-adminlte-button class="d-flex ml-auto" theme="light" label="submit" icon="fas fa-sign-in" />
+        </x-slot>
+    </x-adminlte-card>
+ </div>
 @stop
 
 {{-- Push extra CSS --}}

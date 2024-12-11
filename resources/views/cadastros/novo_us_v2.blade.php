@@ -33,7 +33,7 @@
                 <x-adminlte-input name="iLabel" id="fullName" label="Nome completo" placeholder="nome completo sem abreviações" disable-feedback/>
             </div>
         <div class="form-group">
-            <x-adminlte-input name="iLabel" id="socialName" label="Nome social completo" placeholder="nome completo sem abreviações" disable-feedback />
+            <x-adminlte-input name="iLabel" id="socialName" label="Nome social completo" placeholder="nome completo sem abreviações" disable-feedback disabled />
             <div class="form-group">
                 <input class="form-check-input ml-1" type="checkbox" id="checkSocialName" name="checkSocialName">
                 <div>
@@ -82,7 +82,7 @@
                 <x-adminlte-input name="iLabel" id="fullAddress" label="Endereço completo" placeholder="Endereço completo" disable-feedback />
             </div>
             <div class="form-group">
-                <x-adminlte-textarea name="taBasic" placeholder="Inserir informações adicionais em detalhes" label="Observações"/>
+                <x-adminlte.form.textarea name="taBasic" placeholder="Inserir informações adicionais em detalhes" label="Observações"/>
             </div>
         <h2>Tipo de Usuário</h2>
         <hr>
@@ -181,11 +181,6 @@
 
 @push('css')
 {{-- Add here extra stylesheets --}}
-<style>
-    button {
-        border-radius: 2.25em;
-    }
-</style>
 {{--
 <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 <!-- Bootstrap CSS -->
@@ -206,8 +201,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 <script>
+// Exemplo de ajuste no JavaScript
 $(document).ready(function() {
-    //Initialize Select2 Elements
+    // Inicializa os elementos do Select2
     $('select.select2').select2({
         theme: 'bootstrap4',
     });
@@ -215,12 +211,17 @@ $(document).ready(function() {
     // Evento para habilitar/desabilitar o campo Nome Social
     $('#checkSocialName').change(function() {
         if ($(this).is(':checked')) {
-    $('#socialName').prop('disabled', false); // Habilita o campo
+            $('#socialName').prop('disabled', false); // Habilita o campo
         } else {
-    $('#socialName').val(''); // Limpa o campo
-    $('#socialName').prop('disabled', true); // Desabilita o campo
-}
-});
+            $('#socialName').val(''); // Limpa o campo
+            $('#socialName').prop('disabled', true); // Desabilita o campo
+        }
+    });
+
+    // Adiciona um evento de clique para os botões do accordion
+    $('.accordion-button').on('click', function() {
+        $(this).next('.accordion-collapse').collapse('toggle');
+    });
 });
 </script>
 

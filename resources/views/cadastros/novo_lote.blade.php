@@ -11,41 +11,52 @@
 @section('content_body')
 <h2> Cadastrar Novo Lote</h2>
     <div class="col-md-6">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Novo Lote</h3>
-            </div>
+        <x-adminlte.widget.card title="Novo Lote" header-class="bg-primary">
             <form>
-                <div class="card-body">
                     <div class="form-group">
-                        <label for="inputLote1">Número do Lote</label>
-                        <input type="text" class="form-control" id="inputLote1" placeholder="insira o lote do Medicamento">
-                    </div>
-                    <div class="form-group">
-                        <label>Escolha o medicamento</label>
-                        <select class="form-control">
+                        <x-adminlte.form.select name="selBasic" label="Escolha o medicamento">
                             <option>Med A </option>
                             <option>Med B</option>
                             <option>Med C</option>
                             <option>Med D</option>
                             <option>Med E</option>
-                        </select>
+                        </x-adminlte.form.select>
                     </div>
                     <div class="form-group">
-                        <label for="inputqtd1">Quantidade</label>
-                        <input type="number" class="form-control" id="inputqtd1" placeholder="insira o lote do Medicamento">
+                        <x-adminlte.form.input name="iNumber" type="number" id="qtdLote" label="Quantidade" placeholder="Insira a quantidade de Medicamentos dentro do lote" disable-feedback />
                     </div>
                     <div class="form-group">
-                        <label for="inputfactor1">Fator de Embalagem</label>
-                        <input type="number" class="form-control" id="inputfactor1" placeholder="Inserir apenas números">
+                        <x-adminlte.form.input name="iNumber" type="number" id="qtdFatorEmbalagem" label="Fator de embalagem" placeholder="Insira a quantidade do item, exemplo: blister com 10 unidades, fator de embalagem = 10!" disable-feedback />
                     </div>
                     <div class="form-group">
-                        <label for="inputfab1">Fabricação</label>
-                        <input type="date" class="form-control" id="inputfab1" placeholder="insira a validade no formato DD/MM/AAAA">
+                    @section('plugins.TempusDominusBs4', true)
+                        @php
+                            $config = [
+                                'format' => 'DD-MM-YYYY',
+                            ];
+                        @endphp
+                        <x-adminlte-input-date name="idSizeMd" label="Fabricação" igroup-size="md" :config="$config" placeholder="Insira a data de fabricação">
+                            <x-slot name="appendSlot">
+                                <div class="input-group-text bg-blue">
+                                    <i class="fas fa-calendar-day"></i>
+                                </div>
+                            </x-slot>
+                        </x-adminlte-input-date>
                     </div>
                     <div class="form-group">
-                        <label for="inputval1">Validade</label>
-                        <input type="date" class="form-control" id="inputval1" placeholder="insira a validade no formato DD/MM/AAAA">
+                    @section('plugins.TempusDominusBs4', true)
+                        @php
+                            $config = [
+                            'format' => 'DD-MM-YYYY',
+                            ];
+                        @endphp
+                        <x-adminlte-input-date name="idSizeSm" label="Vencimento" igroup-size="md" :config="$config" placeholder="Insira a data de vencimento">
+                            <x-slot name="appendSlot">
+                                <div class="input-group-text bg-blue">
+                                    <i class="fas fa-calendar-day"></i>
+                                </div>
+                            </x-slot>
+                        </x-adminlte-input-date>
                     </div>
 
                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
@@ -53,14 +64,11 @@
                         <label class="custom-control-label" for="customSwitch3"><p>Bloqueado / Ativo</p></label>
                     </div>
                 <div class="form-group">
-                    <label>Observações</label>
-                    <textarea class="form-control" rows="3" placeholder="Adicione as observações necessárias, obrigatório caso bloqueado"></textarea>
+                    <x-adminlte.form.textarea name="taBasic" placeholder="Inserir informações adicionais em detalhes" label="Observações" />
                 </div>
-                <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
             </form>
-            </div>
+        </x-adminlte-widget.card>
         </div>
 @stop
 
