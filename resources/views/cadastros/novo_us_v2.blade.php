@@ -86,43 +86,29 @@
             </div>
         <h2>Tipo de Usuário</h2>
         <hr>
-        </form>
-<!-- Accordion -->
-<div class="accordion row" id="accordionExample">
-    <div class="accordion-item col-md-3">
-        <h2 class="accordion-header">
-            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%">
-                <h3>Funcionário</h3>
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-               <div class="form-group">
-                    <x-adminlte-input name="iLabel" id="funcao" label="Função atual" placeholder="Insira a funçao atual" disable-feedback />
-                </div>
+        <!--cards tipo pessoa-->
+<div class="row">
+    <div class="col-md-3">
+        <x-adminlte.widget.card title="Funcionário" header-class="bg-primary" collapsible collapsed>
+            <div class="form-group">
+                <x-adminlte-input name="iLabel" id="funcao" label="Função atual" placeholder="Insira a funçao atual"
+                    disable-feedback />
             </div>
         </div>
-    </div>
-    <div class="accordion-item col-md-3">
-        <h2 class="accordion-header">
-            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 100%">
-                <h3>Médico</h3>
-            </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <div class="form-group">
+        </x-adminlte.widget.card>
+            <div class="col-md-3">
+                <x-adminlte.widget.card title="Médico" header-class="bg-primary" collapsible collapsed>
                     <div class="form-group">
                         <x-adminlte-input name="iLabel" id="CRM" label="CRM" placeholder="Insira o CRM atual" disable-feedback />
                     </div>
                     <div class="form-group">
                         @section('plugins.Select2', true)
                         @php
-                            $config = [
-                                "placeholder" => "Select multiple options...",
-                                "allowClear" => true,
-                                "closeOnSelect" => false,
-                            ];
+                        $config = [
+                        "placeholder" => "Select multiple options...",
+                        "allowClear" => true,
+                        "closeOnSelect" => false,
+                        ];
                         @endphp
                         <x-adminlte-select2 id="sel2Category" name="sel2Category[]" label="Especialidades" :config="$config" multiple>
                             <option>Sports</option>
@@ -132,39 +118,27 @@
                             <option>Maths</option>
                         </x-adminlte-select2>
                     </div>
+                </x-adminlte.widget.card>
+            </div>
+        <div class="col-md-3">
+            <x-adminlte.widget.card title="Farmacêutico" header-class="bg-primary" collapsible collapsed>
+                <div class="form-group">
+                    <x-adminlte-input name="iLabel" id="CRF" label="CRF" placeholder="Insira o CRF atual" disable-feedback />
                 </div>
-            </div>
+            </x-adminlte.widget.card>
         </div>
-    </div>
-    <div class="accordion-item col-md-3">
-        <h2 class="accordion-header">
-            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="width: 100%">
-                <h3>Farmacêutico</h3>
-            </button>
-        </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                    <div class="form-group">
-                        <x-adminlte-input name="iLabel" id="CRF" label="CRF" placeholder="Insira o CRF atual" disable-feedback />
-                    </div>
-            </div>
-        </div>
-    </div>
-    <div class="accordion-item col-md-3">
-        <h2 class="accordion-header">
-            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="width: 100%">
-                <h3>Paciente</h3>
-            </button>
-        </h2>
-        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
+        <div class="col-md-3">
+            <x-adminlte.widget.card title="Paciente" header-class="bg-primary" collapsible collapsed>
                 <div class="form-group">
                     <x-adminlte-input name="iLabel" id="nroSus" label="Número do cartão do SUS" placeholder="Insira o número do seu cartão SUS" disable-feedback />
                 </div>
-            </div>
+            </x-adminlte.widget.card>
         </div>
     </div>
+    <!--fim form-control-->
 </div>
+    <!--fim row-->
+        </form>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
@@ -216,11 +190,6 @@ $(document).ready(function() {
             $('#socialName').val(''); // Limpa o campo
             $('#socialName').prop('disabled', true); // Desabilita o campo
         }
-    });
-
-    // Adiciona um evento de clique para os botões do accordion
-    $('.accordion-button').on('click', function() {
-        $(this).next('.accordion-collapse').collapse('toggle');
     });
 });
 </script>
