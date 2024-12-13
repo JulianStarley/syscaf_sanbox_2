@@ -1,4 +1,4 @@
-</form>
+
 @extends('layouts.app')
 
 {{-- Customize layout sections --}}
@@ -67,13 +67,13 @@
         <h2>Dados Adicionais</h2>
         <hr>
             <div class="form-group">
-                <x-adminlte-select name="selBasic" label="Gênero">
+                <x-adminlte-select name="selBasic01" label="Gênero">
                     <x-adminlte-options :options="['option 1', 'option 2','option 3', 'option 4', 'option 5']"
                         empty-option="Selecione uma opção..." />
                 </x-adminlte-select>
             </div>
             <div class="form-group">
-                <x-adminlte-select name="selBasic" label="Estado civil">
+                <x-adminlte-select name="selBasic02" label="Estado civil">
                     <x-adminlte-options :options="['option 1', 'option 2','option 3', 'option 4', 'option 5']"
                         empty-option="Selecione uma opção..." />
                 </x-adminlte-select>
@@ -136,12 +136,12 @@
         </div>
     </div>
     <!--fim form-control-->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
 </div>
     <!--fim row-->
-        </form>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </div>
+
     </form>
     </div>
 <!-- /.card -->
