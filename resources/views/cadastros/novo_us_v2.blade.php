@@ -3,13 +3,13 @@
 
 {{-- Customize layout sections --}}
 @push('head')
+
 <!-- Bootstrap 5.3 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 <!-- Select2 CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
-<!-- Include jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 @endpush
 
@@ -86,62 +86,111 @@
             </div>
         <h2>Tipo de Usuário</h2>
         <hr>
-        <!--cards tipo pessoa-->
-<div class="row">
-    <div class="col-md-3">
-        <x-adminlte.widget.card title="Funcionário" header-class="bg-primary" collapsible collapsed>
-            <div class="form-group">
-                <x-adminlte-input name="iLabel" id="funcao" label="Função atual" placeholder="Insira a funçao atual"
-                    disable-feedback />
-            </div>
-        </div>
-        </x-adminlte.widget.card>
-            <div class="col-md-3">
-                <x-adminlte.widget.card title="Médico" header-class="bg-primary" collapsible collapsed>
-                    <div class="form-group">
-                        <x-adminlte-input name="iLabel" id="CRM" label="CRM" placeholder="Insira o CRM atual" disable-feedback />
-                    </div>
-                    <div class="form-group">
-                        @section('plugins.Select2', true)
-                        @php
-                        $config = [
-                        "placeholder" => "Select multiple options...",
-                        "allowClear" => true,
-                        "closeOnSelect" => false,
-                        ];
-                        @endphp
-                        <x-adminlte-select2 id="sel2Category" name="sel2Category[]" label="Especialidades" :config="$config" multiple>
-                            <option>Sports</option>
-                            <option>News</option>
-                            <option>Games</option>
-                            <option>Science</option>
-                            <option>Maths</option>
-                        </x-adminlte-select2>
-                    </div>
-                </x-adminlte.widget.card>
-            </div>
-        <div class="col-md-3">
-            <x-adminlte.widget.card title="Farmacêutico" header-class="bg-primary" collapsible collapsed>
-                <div class="form-group">
-                    <x-adminlte-input name="iLabel" id="CRF" label="CRF" placeholder="Insira o CRF atual" disable-feedback />
-                </div>
-            </x-adminlte.widget.card>
-        </div>
-        <div class="col-md-3">
-            <x-adminlte.widget.card title="Paciente" header-class="bg-primary" collapsible collapsed>
-                <div class="form-group">
-                    <x-adminlte-input name="iLabel" id="nroSus" label="Número do cartão do SUS" placeholder="Insira o número do seu cartão SUS" disable-feedback />
-                </div>
-            </x-adminlte.widget.card>
-        </div>
-    </div>
     <!--fim form-control-->
+
+    <div class="form-group">
+            <!-- radio -->
+                {{-- Modal funcionario --}}
+                <x-adminlte.tool.modal id="modalFunc" title="Funcionário" size="md" theme="primary" icon="fas fa-bell" v-centered
+                    static-backdrop scrollable>
+                    <div style="height:800px;">
+                        <div class="form-group">
+                            <x-adminlte.form.input name="iLabel" id="funcao" label="Função atual" placeholder="Insira a funçao atual"
+                                disable-feedback />
+                        </div>
+                    </div>
+                    <x-slot name="footerSlot">
+                        <x-adminlte.form.button class="mr-auto" theme="success" label="Confirmar" />
+                        <x-adminlte.form.button theme="danger" label="Cancelar" data-dismiss="modal" />
+                    </x-slot>
+                </x-adminlte.tool.modal>
+                {{-- fim modal funcionario --}}
+                <div class="form-group">
+                    {{-- Modal Médico --}}
+                    <x-adminlte.tool.modal id="modalMed" title="Médico" size="md" theme="primary" icon="fas fa-bell" v-centered
+                        static-backdrop scrollable>
+                        <div style="height:800px;">
+                            <div class="form-group">
+                                <x-adminlte.form.input name="iLabel" id="CRM" label="CRM" placeholder="Insira o CRM atual" disable-feedback />
+                            </div>
+                            <div class="form-group">
+                                @section('plugins.Select2', true)
+                                @php
+                                $config = [
+                                "placeholder" => "Select multiple options...",
+                                "allowClear" => true,
+                                "closeOnSelect" => false,
+                                ];
+                                @endphp
+                                <x-adminlte.form.select2 id="sel2Category" name="sel2Category[]" label="Especialidades" :config="$config" multiple>
+                                    <option>Sports</option>
+                                    <option>News</option>
+                                    <option>Games</option>
+                                    <option>Science</option>
+                                    <option>Maths</option>
+                                </x-adminlte.form.select2>
+                            </div>
+                        </div>
+                        <x-slot name="footerSlot">
+                            <x-adminlte.form.button class="mr-auto" theme="success" label="Confirmar" />
+                            <x-adminlte.form.button theme="danger" label="Cancelar" data-dismiss="modal" />
+                        </x-slot>
+                    </x-adminlte.tool.modal>
+                    {{--fim modal médico --}}
+                {{-- Modal farmaceutico --}}
+                <x-adminlte.tool.modal id="modalFarma" title="Farmacêutico" size="md" theme="primary" icon="fas fa-bell" v-centered
+                    static-backdrop scrollable>
+                    <div style="height:800px;">
+                        <div class="form-group">
+                            <x-adminlte.form.input name="iLabel" id="iFarma" label="Número do CRF" placeholder="Insira o CRF atual"
+                                disable-feedback />
+                        </div>
+                    </div>
+                    <x-slot name="footerSlot">
+                        <x-adminlte.form.button class="mr-auto" theme="success" label="Confirmar" />
+                        <x-adminlte.form.button theme="danger" label="Cancelar" data-dismiss="modal" />
+                    </x-slot>
+                </x-adminlte.tool.modal>
+                {{--fim modal farmaceutico --}}
+                {{--Modal Paciente --}}
+                <x-adminlte.tool.modal id="modalPac" title="Paciente" size="md" theme="primary" icon="fas fa-bell" v-centered
+                    static-backdrop scrollable>
+                    <div style="height:800px;">
+                        <div class="form-group">
+                            <x-adminlte.form.input name="iLabel" id="cardSUS" label="Número cartão SUS" placeholder="Insira o número do cartão SUS" disable-feedback/>
+                        </div>
+                    </div>
+                    <x-slot name="footerSlot">
+                        <x-adminlte.form.button class="mr-auto" theme="success" label="Confirmar" />
+                        <x-adminlte.form.button theme="danger" label="Cancelar" data-dismiss="modal" />
+                    </x-slot>
+                </x-adminlte.tool.modal>
+                {{--fim modal Paciente --}}
+
+            </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalFunc" data-toggle="modal">
+                        <label class="form-check-label" for="radioFunc">Funcionário</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalMed" data-toggle="modal">
+                        <label class="form-check-label" for="radioMed">Médico</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalFarma" data-toggle="modal">
+                        <label class="form-check-label" for="radioFarma">Farmacêutico</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalPac" data-toggle="modal">
+                        <label class="form-check-label" for="radioPac">Paciente</label>
+                    </div>
+                </div>
+    </div>
+    <!--fim row-->
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </div>
-</div>
-    <!--fim row-->
-
     </form>
     </div>
 <!-- /.card -->
@@ -155,8 +204,20 @@
 
 @push('css')
 {{-- Add here extra stylesheets --}}
-{{--
-<link rel="stylesheet" href="/css/admin_custom.css"> --}}
+<style>
+.form-check {
+    border: 1px solid #ccc; /* Cor da borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 20px 60px 20px 60px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaçamento entre os grupos */
+    transition: border-color 0.3s; /* Transição suave para a cor da borda */
+}
+
+.form-check:hover {
+    border-color: #007bff; /* Cor da borda ao passar o mouse */
+}
+</style>
+<link rel="stylesheet" href="/css/admin_custom.css">
 <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -165,7 +226,7 @@
 {{-- Push extra scripts --}}
 
 @push('js')
-<!-- jQuery -->
+<!-- Include jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -175,7 +236,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 <script>
-// Exemplo de ajuste no JavaScript
 $(document).ready(function() {
     // Inicializa os elementos do Select2
     $('select.select2').select2({
@@ -190,6 +250,16 @@ $(document).ready(function() {
             $('#socialName').val(''); // Limpa o campo
             $('#socialName').prop('disabled', true); // Desabilita o campo
         }
+    });
+
+    // Evento para desabilitar outros radio buttons
+    $('input[type="radio"]').change(function() {
+        $('input[type="radio"]').not(this).prop('disabled', true); // Desabilita outros radio buttons
+    });
+
+    // Evento para habilitar todos os radio buttons quando o modal é fechado
+    $('.modal').on('hidden.bs.modal', function () {
+        $('input[type="radio"]').prop('disabled', false); // Habilita todos os radio buttons
     });
 });
 </script>
