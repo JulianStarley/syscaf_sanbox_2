@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'SANDBOX 3',
-    'title_prefix' => '',
-    'title_postfix' => '',
+    'title' => 'INFOTOTH',
+    'title_prefix' => 'XX',
+    'title_postfix' => 'YY',
 
     /*
     |--------------------------------------------------------------------------
@@ -63,9 +63,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>INFO</b>TOTH',
+    'logo_img' => 'public\vendor\adminlte\dist\img\perfilteste.png',
+    'logo_img_class' => 'brand-image img-circle',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
@@ -557,7 +557,7 @@ return [
             ],
         ],
         'bootstrap4DualListbox' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',

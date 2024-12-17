@@ -54,12 +54,12 @@
             <x-adminlte-input name="iLabel" id="CPF" label="Número do CPF" aria-placeholder="Insira os números sem pontos (.), espaços ou hifens(-)"/>
         </div>
             <div class="form-group">
-                <x-adminlte-select name="selBasic" label="Nacionalidade">
+                <x-adminlte-select name="selNacionalidade" id="selNacionalidade" label="Nacionalidade">
                     <x-adminlte-options :options="['option 1', 'option 2','option 3', 'option 4', 'option 5']" empty-option="Selecione uma opção..." />
                 </x-adminlte-select>
             </div>
             <div class="form-group">
-                <x-adminlte-select name="selBasic" label="Naturalidade">
+                <x-adminlte-select name="selNaturalidade" id="selNaturalidade" label="Naturalidade">
                     <x-adminlte-options :options="['option 1', 'option 2','option 3', 'option 4', 'option 5']"
                         empty-option="Selecione uma opção..." />
                 </x-adminlte-select>
@@ -170,19 +170,19 @@
             </div>
                 <div class="d-flex flex-wrap justify-content-between">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalFunc" data-toggle="modal">
+                        <input class="form-check-input" type="radio" id="radioFunc" name="radioChoice" data-target="#modalFunc" data-toggle="modal">
                         <label class="form-check-label" for="radioFunc">Funcionário</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalMed" data-toggle="modal">
+                        <input class="form-check-input" type="radio" id="radioMed" name="radioChoice" data-target="#modalMed" data-toggle="modal">
                         <label class="form-check-label" for="radioMed">Médico</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalFarma" data-toggle="modal">
+                        <input class="form-check-input" type="radio" id="radioFarma" name="radioChoice" data-target="#modalFarma" data-toggle="modal">
                         <label class="form-check-label" for="radioFarma">Farmacêutico</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioChoice" data-target="#modalPac" data-toggle="modal">
+                        <input class="form-check-input" type="radio" id="radioPac" name="radioChoice" data-target="#modalPac" data-toggle="modal">
                         <label class="form-check-label" for="radioPac">Paciente</label>
                     </div>
                 </div>
@@ -217,9 +217,8 @@
     border-color: #007bff; /* Cor da borda ao passar o mouse */
 }
 </style>
-<link rel="stylesheet" href="/css/admin_custom.css">
 <!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 
 @endpush
 
