@@ -15,7 +15,7 @@
         <div class="card-header">
             <h3 class="card-title">Cadastrar nova unidade</h3>
         </div>
-        <form>
+        <form id=novaUnidade>
             <div class="card-body">
                 <div class="form-group">
                     <x-adminlte-input name="iUnity" label="Unidade" placeholder="Insira o nome completo da unidade"
@@ -41,7 +41,8 @@
                             min="1" max="999999" fgroup-class="col-md-6">
                         </x-adminlte-input>
                     </div>
-
+                <h3>Selecionar equipe da unidade</h3>
+                <hr>
                 <div id="datatable01" name="table_data">
                     @section('plugins.DatatablesPlugin', true)
                     @php
@@ -50,42 +51,47 @@
                         $heads = [
                                     ['label' => "Selecionar" , 'no-export' => true, 'width' => 5],
                                     'Nome',
-                                    ['label' => 'Função', 'width' => 40],
-                                    ['label' => 'Ações', 'no-export' => true, 'width' => 5],
+                                    ['label' => 'Função', 'width' => 20],
+                                    'Telefone',
+                                    ['label' => 'Ações', 'no-export' => true, 'width' => 3],
                                 ];
                             //configuração checkboxes
                             $clnSelect = '<input type="checkbox" class="row-select" />';
                             //botão editar
-                            $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+                            $btnEdit = '
+                            <button type="button" class="btn btn-sm btn-default text-primary mx-1 shadow" title="Edit">
                             <i class="fa fa-lg fa-fw fa-pen"></i>
-                            </button>';
+                            </button>
+                                ';
                             //botão lixeira
                             $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
                             <i class="fa fa-lg fa-fw fa-trash"></i>
                             </button>';
                             //botão lápis
-                            $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
-                            <i class="fa fa-lg fa-fw fa-eye"></i>
-                            </button>';
+                            $btnDetails = '
+                                <button type="button" class="btn btn-sm btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#modalProfile" title="Details">
+                                <i class="fa fa-lg fa-fw fa-eye"></i>
+                                </button>
+                            ';
 
             //array de preenchimento da tabela
 
             $config = [
                 'data' => [
-                            [$clnSelect, 'John Bender', '+02 (123) 123456789', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Sophia Clemens', '+99 (987) 987654321', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
-                            [$clnSelect, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
+                            [$clnSelect, 'John Bender', 'Administrador','+02 (123) 123456789','<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Sophia Clemens', 'Médico','+99 (987) 987654321', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Farmacêutico','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Paciente','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Farmacêutico','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Paciente', '+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Médico','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Administrador','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Médico','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Paciente','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Farmacêutico','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Médico','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Paciente','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
+                            [$clnSelect, 'Peter Sousa', 'Administrador','+69 (555) 12367345243', '<div class="d-flex">'.'<nobr>'.$btnEdit.'<div class="ml-auto">'.$btnDetails.'</nobr>'.'</div></div>'],
                         ],
                             'order' => [[1, 'asc']],
                             'columns' => [null, null, null, ['orderable' => false]],
@@ -104,8 +110,45 @@
 
                 @endforeach
             </x-adminlte.tool.datatable>
+
+            </div>
+
+            <div class="text-right mt-3">
+                <x-adminlte.form.button type="submit" label="Enviar" theme="primary" class="btn-lg">
+                </x-adminlte.form.button>
             </div>
         </form>
+        <div id="modalPerfil">
+            {{-- Custom --}}
+            <x-adminlte.tool.modal id="modalProfile" title="Perfil" size="lg" theme="success" icon="fas fa-solid fa-user" v-centered
+                static-backdrop>
+                <div style="height:800px;">
+                    {{-- Layout Classic / Theme --}}
+                    <x-adminlte.widget.profile-widget name="John Bender" desc="Administrador" theme="teal" img="https://picsum.photos/id/1/100"
+                        layout-type="classic">
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-user-friends" title="Nome completo" text="John Bender" badge="pill-teal" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-user-friends fa-flip-horizontal" title="Nome social" text="N/A" badge="pill-lightblue" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="CPF" text="123.456.789-10" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Nacionalidade" text="Brasileiro" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Naturalidade" text="xique-xique" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Genero" text="prefiro não informar" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Telefone" text="(7X) 1234-4567" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Endereço" text="Rua ABC" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Observações" text="N/A" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Se medico" text="CRM" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Se medico" text="Escpecialidades" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Se Paciente (cartao SUS)" text="123.456.789-10" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Se farmaceutico (CRF)" text="123.456.789-10" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Se funcionario" text="Função" badge="pill-navy" />
+                        <x-adminlte.widget.profile-row-item icon="fas fa-fw fa-sticky-note" title="Permissões" text="permissão A, B, C, ..." badge="pill-navy" />
+                    </x-adminlte.widget.profile-widget>
+                </div>
+                <x-slot name="footerSlot">
+                    <x-adminlte.form.button class="mr-auto" theme="success" label="Accept" />
+                    <x-adminlte.form.button theme="danger" label="Dismiss" data-dismiss="modal" />
+                </x-slot>
+            </x-adminlte.tool.modal>
+        </div>
     </div>
 </div>
 @push('css')
@@ -122,7 +165,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-   <script>
    <script>
     $(document).ready(function() {
     var table = $('#table1').DataTable();
