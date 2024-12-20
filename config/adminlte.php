@@ -338,6 +338,7 @@ return [
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Operacional'],
         [
             'text' => 'Cadastros',
             'icon' => 'fas fa-fw fa-share',
@@ -361,6 +362,24 @@ return [
                 [
                     'text' => 'Novo Lote',
                     'url' => '/novo_lote',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Estoque',
+            'icon' => 'fas fa-fw fa-layer-group',
+            'submenu' => [
+                [
+                    'text' => 'Visão geral',
+                    'url' => '/visao_geral',
+                ],
+                [
+                    'text' => 'Entrada',
+                    'url' => '/entrada',
+                ],
+                [
+                    'text' => 'Saída',
+                    'url' => '/saida',
                 ],
             ],
         ],

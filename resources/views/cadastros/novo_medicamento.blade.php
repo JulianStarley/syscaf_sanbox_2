@@ -73,7 +73,7 @@
                             <label class="form-check-label" for="customSwitch3">
                                 <div class="toggle-switch">
                                     <div class="toggle-ball"></div> <!-- Adicionando a bolinha -->
-                                    <i class="fas fa-times" id="switch-icon"></i>
+                                    <i class="fas fa-ban" id="switch-icon"></i>
                                     <i class="fas fa-check" id="switch-icon-checked"></i>
                                 </div>
                                 <span class="toggle-text" id="toggle-text">Bloqueado</span>
@@ -141,7 +141,7 @@
     }
 
     #switch-icon {
-        left: 12px;
+        left: 08px;
         color: #8b0a1a;
     }
 

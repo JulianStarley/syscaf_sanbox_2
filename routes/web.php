@@ -71,6 +71,9 @@ Route::get('/novo_us_v2', function(){
     return view('cadastros.novo_us_v2');
 });
 
+Route::get('/visao_geral', function () {
+    return view('estoque.visao_geral');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

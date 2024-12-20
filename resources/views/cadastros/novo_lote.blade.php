@@ -21,7 +21,7 @@
                         </x-adminlte.form.select>
                     </div>
                     <div class="form-group">
-                        <x-adminlte.form.input name="iNumber" type="number" id="qtdLote" label="Quantidade" placeholder="Insira a quantidade de Medicamentos dentro do lote" disable-feedback />
+                        <x-adminlte.form.input name="iNumber" type="number" id="qtdLote" label="Quantidade do lote" placeholder="Insira a quantidade de Medicamentos dentro do lote" disable-feedback />
                     </div>
                     <div class="form-group">
                         <x-adminlte.form.input name="iNumber" type="number" id="qtdFatorEmbalagem" label="Fator de embalagem" placeholder="Insira a quantidade do item, exemplo: blister com 10 unidades, fator de embalagem = 10!" disable-feedback />
@@ -56,22 +56,23 @@
                             </x-slot>
                         </x-adminlte-input-date>
                     </div>
-                   <div class="form-switch form-switch-lg">
-                    <input class="form-check-input" type="checkbox" id="customSwitch3">
-                    <label class="form-check-label" for="customSwitch3">
-                        <div class="toggle-switch">
-                            <div class="toggle-ball"></div> <!-- Adicionando a bolinha -->
-                            <i class="fas fa-times" id="switch-icon"></i>
-                            <i class="fas fa-check" id="switch-icon-checked"></i>
-                        </div>
-                        <span class="toggle-text" id="toggle-text">Bloqueado</span>
-                    </label>
-                    </div>
-
                 <div class="form-group">
                     <x-adminlte.form.textarea name="taBasic" placeholder="Inserir informações adicionais em detalhes" label="Observações" />
                 </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="form-switch form-switch-lg">
+                        <input class="form-check-input" type="checkbox" id="customSwitch3">
+                        <label class="form-check-label" for="customSwitch3">
+                            <div class="toggle-switch">
+                                <div class="toggle-ball"></div> <!-- Adicionando a bolinha -->
+                                <i class="fas fa-ban" id="switch-icon"></i>
+                                <i class="fas fa-check" id="switch-icon-checked"></i>
+                            </div>
+                            <span class="toggle-text" id="toggle-text">Bloqueado</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 120px; padding:10px 0px 10px 0px">Enviar</button>
+                </div>
             </form>
         </x-adminlte-widget.card>
         </div>
@@ -122,7 +123,7 @@
 }
 
 #switch-icon {
-    left: 12px;
+    left: 8px;
     color: #8b0a1a;
 }
 
