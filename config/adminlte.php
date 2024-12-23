@@ -381,6 +381,10 @@ return [
                     'text' => 'Saída',
                     'url' => '/saida',
                 ],
+                [
+                    'text' => 'Trocas entre unidades',
+                    'url' => '/saida',
+                ],
             ],
         ],
         [
